@@ -1,0 +1,6 @@
+aighlighter: pygments
+kramdown:
+  input: GFM
+
+safe: true
+lsi: false
