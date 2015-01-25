@@ -2,7 +2,7 @@
 
 [Vector Manipulator](https://github.com/DerekStride/Homework-Solvers)
 
-[Atmega328 Powered LCD](https://github.com/DerekStride/Atmega328-LCD)
+[Atmega328 Powered LCD](https://http://derekstride.github.io/Atmega328-LCD/)
 
 ## Contact
 
