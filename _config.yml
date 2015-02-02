@@ -1,4 +1,4 @@
-aighlighter: pygments
+highlighter: pygments
 kramdown:
   input: GFM
 
