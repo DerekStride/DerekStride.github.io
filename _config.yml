@@ -4,6 +4,7 @@ email: djgstride@gmail.com
 description: "See | Solve | Save"
 
 # Build settings
+highlighter: pygments
 kramdown:
   input: GFM
 permalink: pretty
