@@ -1,5 +1,9 @@
-# Build settings
+# Site settings
+title: Derek Stride
+email: djgstride@gmail.com
+description: "See | Solve | Save"
 
+# Build settings
 kramdown:
   input: GFM
 permalink: pretty
