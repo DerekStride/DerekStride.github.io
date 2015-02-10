@@ -1,6 +1,18 @@
+# Site settings
+title: Derek Stride
+email: djgstride@gmail.com
+description: "See | Solve | Save"
+
+# Build settings
 highlighter: pygments
 kramdown:
   input: GFM
+permalink: pretty
 
 safe: true
 lsi: false
+port: 3000
+
+sass:
+  sass_dir: assets/css
+  style: :nested
