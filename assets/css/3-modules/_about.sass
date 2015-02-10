@@ -10,25 +10,25 @@
     border-radius: 50%
     background: url(/assets/images/face.png)
     background-repeat: no-repeat
-    order: 3
+    +order(3)
 
   [class^="icon-"]
     +size(100px)
 
     &.icon-pencil
-      order: 1
+      +order(1)
       fill: yellow
 
     &.icon-mouse
-      order: 1
+      +order(2)
       fill: white
 
     &.icon-browser
-      order: 4
+      +order(4)
       fill: red
 
     &.icon-cogs
-      order: 5
+      +order(5)
       fill: grey
 
 @media screen and (max-width: 650px)
@@ -90,7 +90,7 @@
         margin: 2px
 
     @for $i from 1 through 10
-      &.skill-#{$i} span:nth-child(n+#{$i})
+      &.skill-#{$i} span:nth-child(n + #{$i + 1})
         @extend %skill-color
 
 
