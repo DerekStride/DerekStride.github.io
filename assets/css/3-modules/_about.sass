@@ -91,7 +91,7 @@
 
     @for $i from 1 through 10
       &.skill-#{$i} span:nth-child(n + #{$i + 1})
-        @extend %skill-color
+        background: #777
 
 
 h3
@@ -110,6 +110,3 @@ h5
 
 li
   margin: 0 0 5px 20px
-
-%skill-color
-  background: $bg-color
