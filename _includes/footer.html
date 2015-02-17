@@ -1,14 +1,18 @@
 <footer>
   <div class="lockup">
     <hr>
-    
+
     <div class="logo"><a href="https://github.com/DerekStride">{% include icons/github-logo.html %}</a></div>
 
     <div class="sub-menu">
 
       <nav>
 
-        <a href="">Projects</a>
+        {% for item in site.data.portfolio.menu %}
+
+          <a href={{ item.url }}>{{ item.name }}</a>
+
+        {% endfor %}
 
       </nav>
 

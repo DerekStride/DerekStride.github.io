@@ -1,6 +1,6 @@
 <section>
 
-  <div class="face-lockup">
+  <div class="face-lockup" id="About">
 
     <div class="face-img"></div>
 
@@ -15,123 +15,27 @@
 
     <h3>Derek Stride</h3>
 
-    <p>I'm a software engineering student studying at Carleton University in Ottawa, ON. I have a passion for learning the latest cutting edge technology and teaching others how to use it as well. Whether it's low level coding on a BeagleBone Black or high level web development with Jekyll, I'm interested in it and want to know more.</p>
-    <p>I have a lot of plans coming up in the future, I want to start making guides and posting them on this site, and eventually I want to start making videos showing how to do the various projects I've done. I want these to be both instructional and informational so that you can know what you're doing and why you're doing it this way.</p>
+    {{ site.data.portfolio.blurb }}
   </div>
 
   <div class="skill-lockup">
 
-    <div class="skill-unit">
+    {% for skill in site.data.portfolio.skills %}
 
-      <div class="skill-label">Teaching</div>
-      <div class="skill-icons skill-9">
+      <div class="skill-unit">
 
-        <span></span><span></span><span></span>
-        <span></span><span></span><span></span>
-        <span></span><span></span>
-        <span></span><span></span>
+        <div class="skill-label">{{ skill.name }}</div>
+        <div class="skill-icons skill-{{ skill.value }}">
 
-      </div>
+          {% for i in (1..10) %}
+            <span></span>
+          {% endfor %}
 
-    </div>
-
-    <div class="skill-unit">
-
-      <div class="skill-label">Learning</div>
-      <div class="skill-icons skill-10">
-
-        <span></span><span></span><span></span>
-        <span></span><span></span><span></span>
-        <span></span><span></span>
-        <span></span><span></span>
+        </div>
 
       </div>
 
-    </div>
-
-    <div class="skill-unit">
-
-      <div class="skill-label">Communication</div>
-      <div class="skill-icons skill-6">
-
-        <span></span><span></span><span></span>
-        <span></span><span></span><span></span>
-        <span></span><span></span>
-        <span></span><span></span>
-
-      </div>
-
-    </div>
-
-    <div class="skill-unit">
-
-      <div class="skill-label">Organization</div>
-      <div class="skill-icons skill-8">
-
-        <span></span><span></span><span></span>
-        <span></span><span></span><span></span>
-        <span></span><span></span>
-        <span></span><span></span>
-
-      </div>
-
-    </div>
-
-    <div class="skill-unit">
-
-      <div class="skill-label">Planning</div>
-      <div class="skill-icons skill-8">
-
-        <span></span><span></span><span></span>
-        <span></span><span></span><span></span>
-        <span></span><span></span>
-        <span></span><span></span>
-
-      </div>
-
-    </div>
-
-    <div class="skill-unit">
-
-      <div class="skill-label">Design</div>
-      <div class="skill-icons skill-7">
-
-        <span></span><span></span><span></span>
-        <span></span><span></span><span></span>
-        <span></span><span></span>
-        <span></span><span></span>
-
-      </div>
-
-    </div>
-
-    <div class="skill-unit">
-
-      <div class="skill-label">Programming</div>
-      <div class="skill-icons skill-7">
-
-        <span></span><span></span><span></span>
-        <span></span><span></span><span></span>
-        <span></span><span></span>
-        <span></span><span></span>
-
-      </div>
-
-    </div>
-
-    <div class="skill-unit">
-
-      <div class="skill-label">Adatpability</div>
-      <div class="skill-icons skill-9">
-
-        <span></span><span></span><span></span>
-        <span></span><span></span><span></span>
-        <span></span><span></span>
-        <span></span><span></span>
-
-      </div>
-
-    </div>
+    {% endfor %}
 
   </div>
 

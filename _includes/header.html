@@ -6,13 +6,17 @@
     <div class="sub-menu">
       <nav>
 
-        <a href="">Projects</a>
+        {% for item in site.data.portfolio.menu %}
+
+          <a href={{ item.url }}>{{ item.name }}</a>
+
+        {% endfor %}
 
       </nav>
     </div>
 
     <h1>&#252;gerest</h1>
-    <p class="kicker">{{ site.tagline }}</p>
+    <p class="kicker">{{ site.data.portfolio.tagline }}</p>
 
     <hr>
 

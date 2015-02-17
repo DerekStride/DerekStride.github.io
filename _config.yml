@@ -1,8 +1,3 @@
-# Site settings
-title: Derek Stride
-email: djgstride@gmail.com
-tagline: "See | Solve | Save"
-
 # Build settings
 highlighter: pygments
 kramdown:
