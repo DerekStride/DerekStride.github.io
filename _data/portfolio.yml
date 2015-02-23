@@ -7,6 +7,10 @@ tagline: "See | Solve | Save"
 
 menu:
 - {name: About Me, url: '#About'}
+- {name: Projects, url: '#Projects'}
+
+
+
 
 #-------------------------------
 # About Section
@@ -15,8 +19,6 @@ blurb: >
   I'm a software engineering student studying at Carleton University  in Ottawa, ON. I have a passion for learning the latest cutting edge technology and teaching others how to use it as well. Whether it's low level coding on a BeagleBone Black or high level web development with Jekyll, I'm interested in it and want to know more.
 
   I have a lot of plans coming up in the future, I want to start making guides and posting them on this site, and eventually I want to start making videos showing how to do the various projects I've done. I want these to be both instructional and informational so that you can know what you're doing and why you're doing it this way.
-
-
 
 
 skills:
@@ -28,3 +30,13 @@ skills:
 - {name: Communication, value: '6'}
 - {name: Programming, value: '7'}
 - {name: Adaptability, value: '9'}
+
+
+
+
+#-------------------------------
+# Project Section
+
+projects:
+- {title: Atmega328 LCD, folder: 'atmega-lcd', url: 'derekstride.github.io/Atmega328-LCD'}
+- {title: Homework Solvers, folder: 'homework-solvers', url '#'}

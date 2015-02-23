@@ -1,11 +1,33 @@
-<section>
+<section class="alt-section">
 
-  <h5>Some of my coolest projects are:</h5>
-  <li>
+  <h3 id="Projects">Projects</h5>
+
+  <div class="thumb-container">
+
+    {% for project in site.data.portfolio.projects %}
+
+    <a href="{{ project.url }}" class="thumb-unit" style="background-image: url(/assets/projects/{{ project.folder }}/thumb.jpg)">
+
+      <div class="thumb-overlay">
+
+        <strong>{{ project.title }}</strong>
+        <div class="zoom-icon"></div>
+
+      </div>
+
+    </a>
+
+    {% endfor %}
+
+  </div>
+
+
+
+  <!-- <li>
     <a href="derekstride.github.io/Atmega328-LCD">Atmega328 controlled LCD</a>
   </li>
   <li>
     <a href="github.com/DerekStride/Homework-Solvers">Vector Manipulator for Highschool and University Students</a>
-  </li>
+  </li> -->
 
 </section>
