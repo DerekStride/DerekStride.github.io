@@ -1,0 +1,11 @@
+#-------------------------------
+# General Site Settings
+
+title: Derek Stride
+email: djgstride@gmail.com
+tagline: "See | Solve | Save"
+
+
+menu:
+- {name: About Me, url: '#About'}
+- {name: Projects, url: '#Projects'}
