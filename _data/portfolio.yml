@@ -24,5 +24,5 @@ skills:
 # Project Section
 
 projects:
-- {title: Atmega328 LCD, folder: 'atmega-lcd', url: 'Atmega328-LCD'}
+- {title: Atmega328 LCD, folder: 'atmega-lcd', url: 'Atmega-LCD'}
 - {title: Homework Solvers, folder: 'homework-solvers', url '#'}
