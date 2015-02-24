@@ -1,5 +1,5 @@
 # Build settings
-highlighter: rouge
+highlighter: pygments
 kramdown:
   input: GFM
 permalink: pretty
