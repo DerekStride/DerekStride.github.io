@@ -4,7 +4,7 @@ layout: project
 menu:
 - header: Introduction
   url:    introduction
-- header: Quick Reference Guide
+- header: Quick Reference
   url:    quick-reference-guide
 - header: The Gear
   url:    the-gear-youll-need
