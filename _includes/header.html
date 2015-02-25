@@ -6,16 +6,16 @@
     <div class="sub-menu">
       <nav>
 
-        {% for item in site.data.general.menu %}
+        {% for item in page.menu %}
 
-          <a href={{ item.url }}>{{ item.name }}</a>
+          <a href=#{{ item.url }}>{{ item.header }}</a>
 
         {% endfor %}
 
       </nav>
     </div>
 
-    <h1>&#252;gerest</h1>
+    <a href="/"><h1>&#252;gerest</h1></a>
     <p class="kicker">{{ site.data.general.tagline }}</p>
 
     <hr>

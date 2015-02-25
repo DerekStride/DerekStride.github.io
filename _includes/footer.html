@@ -8,9 +8,9 @@
 
       <nav>
 
-        {% for item in site.data.general.menu %}
+        {% for item in page.menu %}
 
-          <a href={{ item.url }}>{{ item.name }}</a>
+          <a href=#{{ item.url }}>{{ item.header }}</a>
 
         {% endfor %}
 
