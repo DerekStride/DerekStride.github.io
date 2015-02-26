@@ -5,9 +5,10 @@ title: Derek Stride
 email: djgstride@gmail.com
 tagline: "See | Solve | Save"
 
-
-menu:
-- {name: About Me, url: '#About'}
-- {name: Projects, url: '#Projects'}
-
 tracking: UA-58890104-1
+
+
+#-------------------------------
+# Website Handles
+
+github: DerekStride
