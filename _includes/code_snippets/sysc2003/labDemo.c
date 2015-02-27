@@ -17,6 +17,7 @@ int main(void)
 
   //  code
 
+  asm("swi");
   return 0;
 
 }
