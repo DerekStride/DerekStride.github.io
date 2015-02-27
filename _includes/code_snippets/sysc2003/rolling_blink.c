@@ -1,3 +1,8 @@
+/*
+ *  n         - number of times to loop
+ *  delay_ms  - how long before each step
+ */
+
 void rolling_blink(unsigned int n, unsigned int delay_ms)
 {
 
@@ -9,6 +14,8 @@ void rolling_blink(unsigned int n, unsigned int delay_ms)
 
     //  clear all
     PORTK = 0x00;
+
+    delay(delay_ms);
 
     //  This sets PORTK to itself OR 0000 0001,
     //  essentially it makes sure bit 0 (LED1) is set high.
@@ -47,5 +54,8 @@ void rolling_blink(unsigned int n, unsigned int delay_ms)
     delay(delay_ms);
 
   }
+
+  //  clear all
+  PORTK = 0x00;
 
 }

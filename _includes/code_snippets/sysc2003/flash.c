@@ -1,3 +1,8 @@
+/*
+ *  n         - number of times to loop
+ *  delay_ms  - how long before each step
+ */
+
 void flash(unsigned int n, unsigned int delay_ms)
 {
 
@@ -16,6 +21,10 @@ void flash(unsigned int n, unsigned int delay_ms)
     PORTK = 0x0F;
 
     delay(delay_ms);
-  
+
   }
+
+  //  clear all
+  PORTK = 0x00;
+
 }

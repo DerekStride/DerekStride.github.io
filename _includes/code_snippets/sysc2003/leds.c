@@ -12,7 +12,7 @@ int main(void)
   DDRK = 0x0F;
   PORTK = 0x00;
 
-  rolling_blink(10, 50000);
+  rolling_blink(10, 5000);
   flash(10, 50000);
 
   //  Add this to prevent NoICE from hanging.
