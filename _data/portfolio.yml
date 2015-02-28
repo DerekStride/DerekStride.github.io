@@ -26,3 +26,4 @@ skills:
 projects:
 - {title: Atmega328 LCD, folder: 'atmega-lcd', url: 'Atmega328-LCD'}
 - {title: Homework Solvers, folder: 'homework-solvers', url: 'homework-solvers'}
+- {title: SYSC2003, folder: 'sysc2003', url: 'SYSC2003'}
