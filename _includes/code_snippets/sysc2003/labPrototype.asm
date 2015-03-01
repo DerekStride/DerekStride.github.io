@@ -1,10 +1,11 @@
 ;  symbols (or nothing)
 
-	ORG  $1000
+	ORG	$1000
 
 ;  data
 
-	ORG  $4000
+	ORG	$4000
+	LDS	#$3DFF
 
 ;  code
 
