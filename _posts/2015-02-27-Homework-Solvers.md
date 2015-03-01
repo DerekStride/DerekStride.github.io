@@ -1,7 +1,7 @@
 ---
 title:  Homework Solvers
 layout: project
-permalink: /homework-solvers
+permalink: /projects/homework-solvers
 folder: homework-solvers
 menu:
 - header: Introduction
