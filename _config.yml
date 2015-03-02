@@ -16,14 +16,10 @@ defaults:
   -
     scope:
       path: ""
-    values:
-      layout: "default"
-  -
-    scope:
-      path: ""
       type: "pages"
     values:
       heading:  "Introduction"
+      layout:   "default"
   -
     scope:
       path:   "projects"
@@ -33,6 +29,8 @@ defaults:
       author: "Derek Stride"
   -
     scope:
-      path: "courses"
+      path: ""
+      type: "posts"
     values:
+      heading:  "Introduction"
       layout:   "wrapper"
