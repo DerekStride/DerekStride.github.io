@@ -1,7 +1,5 @@
 ---
 title: Atmega328p w/Arduino bootloader RGB LCD
-layout: project
-permalink: /projects/atmega328-lcd
 menu:
 - header: Introduction
   url:    introduction
@@ -14,8 +12,6 @@ menu:
 - header: Sources
   url:    sources
 ---
-### Introduction
-
 This Project hosts the code for my project to make an LCD screen that will be controlled by the Atmega328p with the Arduino bootloader on it. I will be using various tutorials and guides and will provide the link to all of them in the Sources section below.
 
 Essentially, this is a collection of all the resources you'll need to get the microcontroller to continually send and change messages on an LCD screen. I recommend soldering components to a protobroad and providing plugs for the pins when you want to reflash the code with new messages. It makes for a **great** gift if you make it look nice!

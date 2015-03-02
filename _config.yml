@@ -11,3 +11,28 @@ port: 3000
 sass:
   sass_dir: assets/css
   style: :nested
+
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      layout: "default"
+  -
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      heading:  "Introduction"
+  -
+    scope:
+      path:   "projects"
+      type:   "pages"
+    values:
+      layout: "project"
+      author: "Derek Stride"
+  -
+    scope:
+      path: "courses"
+    values:
+      layout:   "wrapper"

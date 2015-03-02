@@ -1,8 +1,5 @@
 ---
 title:  Homework Solvers
-layout: project
-permalink: /projects/homework-solvers
-folder: homework-solvers
 menu:
 - header: Introduction
   url:    introduction
@@ -13,7 +10,6 @@ menu:
 - header: Python
   url:    python
 ---
-### Introduction
 
 Here's how to compile and run all the versions of this project. If you can even run them out of the box.
 

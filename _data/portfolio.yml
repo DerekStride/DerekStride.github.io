@@ -24,6 +24,19 @@ skills:
 # Project Section
 
 projects:
-- {title: Atmega328 LCD, folder: 'atmega-lcd', url: 'projects/atmega328-lcd'}
-- {title: Homework Solvers, folder: 'homework-solvers', url: 'projects/homework-solvers'}
-- {title: SYSC2003, folder: 'sysc2003', url: 'SYSC2003'}
+- title: Atmega328 LCD
+  folder: 'atmega-lcd'
+  url: '/projects/atmega328-lcd'
+  excerpt: >
+    This Project hosts the code for my project to make an LCD screen that will be controlled by the Atmega328p with the Arduino bootloader on it. I will be using various tutorials and guides and will provide the link to all of them in the Sources section below.
+
+- title: Homework Solvers
+  folder: 'homework-solvers'
+  url: '/projects/homework-solvers'
+  excerpt:  >
+    Here's how to compile and run all the versions of this project. If you can even run them out of the box.
+- title: SYSC2003
+  folder: 'sysc2003'
+  url: '/SYSC2003'
+  excerpt:  >
+    I'll Update this as I learn more but for now here's a sample on different important topics we covered.
