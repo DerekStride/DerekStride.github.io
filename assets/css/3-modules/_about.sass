@@ -3,7 +3,7 @@
   margin: 0 auto
   +align-items(center)
   +justify-content(space-around)
-  padding-top: 45px
+  padding-top: 15px
 
   .face-img
     +size(150px)
@@ -30,6 +30,9 @@
     &.icon-cogs
       +order(5)
       fill: grey
+      svg
+        margin-top: 25px
+        margin-left: 25px
 
 @media screen and (max-width: 650px)
   .face-lockup
@@ -60,6 +63,11 @@
   margin: 0 auto
   font:
     weight: 300
+  h3
+    margin-bottom: 10px
+    color: $accent-color
+    clear: both
+    padding-top: 0px
 
 .skill-lockup
   max-width: 650px
@@ -92,13 +100,6 @@
     @for $i from 1 through 10
       &.skill-#{$i} span:nth-child(n + #{$i + 1})
         background: #777
-
-
-h3
-  margin-bottom: 10px
-  color: $accent-color
-  clear: both
-  padding-top: 0px
 
 
 li
