@@ -25,6 +25,6 @@ void flash(unsigned int n, unsigned int delay_ms)
   }
 
   //  clear all
-  PORTK = 0x00;
+  PORTK &= 0xF0;
 
 }
