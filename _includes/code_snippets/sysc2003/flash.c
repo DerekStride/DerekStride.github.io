@@ -13,12 +13,12 @@ void flash(unsigned int n, unsigned int delay_ms)
   {
 
     //  clear all
-    PORTK = 0x00;
+    PORTK &= 0xF0;
 
     delay(delay_ms);
 
     //  set bits 0 - 3 (LED1 - LED4)
-    PORTK = 0x0F;
+    PORTK |= 0x0F;
 
     delay(delay_ms);
 
