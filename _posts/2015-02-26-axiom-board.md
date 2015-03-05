@@ -1,15 +1,12 @@
 ---
 title:      SYSC 2003 Axiom Board Features
 permalink:  /SYSC2003/axiom-board
-layout: default
+layout:     wrapper
+heading:    
 folder:     sysc2003
 codeswap:
 - header: LEDs
   url:    leds
-- header: LCD
-  url:    lcds
-- header: Stepper Motor
-  url:    stepper
 ---
 
 <nav>
@@ -39,18 +36,6 @@ codeswap:
 
 </div>
 
-<div id="stepper" style="display:none">
-
-{% highlight c %}
-
-{% include code_snippets/{{ page.folder }}/imports.c %}
-{% include code_snippets/{{ page.folder }}/stepper_motor.c %}
-
-{% endhighlight %}
-
-</div>
-
-
 <div id="leds" style="display:none">
 
 {% highlight c %}
@@ -60,17 +45,6 @@ codeswap:
 {% include code_snippets/{{ page.folder }}/rolling_blink.c %}
 {% include code_snippets/{{ page.folder }}/flash.c %}
 {% include code_snippets/{{ page.folder }}/leds.c %}
-
-{% endhighlight %}
-
-</div>
-
-<div id="lcds" style="display:none">
-
-{% highlight c %}
-
-{% include code_snippets/{{ page.folder }}/imports.c %}
-{% include code_snippets/{{ page.folder }}/LCD.c %}
 
 {% endhighlight %}
 
