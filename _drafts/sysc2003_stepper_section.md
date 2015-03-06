@@ -28,3 +28,14 @@ The stepper motor works using a bottom and left electromagnet. Essentially you t
   1  |  0  
 
 To setup the stepper motor you have to set bits 5 & 6 high in DDRT so we can change change bits 5 & 6 in PTT which controls the bottom and left magnets in the stepper motor. We also need to set bit 6 hight in DDRP & PTP respectively to enable the stepper motor (stepper enable pin is bit 6 in PTP, DDRP lets us set it). In the following code you'll see this done in the main function and you'll see the tables implemented in the step function.
+
+<div id="stepper" style="display:none">
+
+{% highlight c %}
+
+{% include code_snippets/{{ page.folder }}/imports.c %}
+{% include code_snippets/{{ page.folder }}/stepper_motor.c %}
+
+{% endhighlight %}
+
+</div>
