@@ -3,20 +3,22 @@ header
   background:       $bg-color
   background-size:  cover
 
-.lockup
-  margin-bottom: 10px
+.header-lockup
   +clearfix
 
   .sub-menu
+    margin:   0 auto
     nav
-      float:    left
+      text-align: center
       a
         @extend %smallLinkFont
         display: inline-block
+        margin: 12px 20px 0 0
 
   h1
     text-align: center
-    margin-bottom: 20px
+    margin-top:     30px
+    margin-bottom:  20px
     color: white
     clear: both
     padding-top: 5px
@@ -26,10 +28,3 @@ header
     font:
       weight: 700
     line-height: 1
-
-@media (max-width: 640px)
-  .sub-menu
-    nav
-      float: none
-      text-align: center
-      //padding-top:  30px
