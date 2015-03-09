@@ -40,3 +40,22 @@ projects:
   url: '/SYSC2003'
   excerpt:  >
     I'll Update this as I learn more but for now here's a sample on different important topics we covered.
+
+
+#-------------------------------
+# Contact Section
+
+# Available icons in assets/css/1-tools/_icons-icomoon.scss
+
+social:
+- icon: 'twitter'
+  link: 'https://twitter.com/Derek_Stride'
+
+- icon: 'google'
+  link: 'https://plus.google.com/+DerekStride'
+
+- icon: 'github'
+  link: 'https://github.com/DerekStride'
+
+- icon: 'linkedin-square'
+  link: 'https://ca.linkedin.com/in/derekstride'

@@ -5,16 +5,14 @@
     <h3 id="contact">Contact</h3>
 
     <div class="social-links">
-      <a href=""></a>
-      <a href=""></a>
-      <a href=""></a>
-      <a href=""></a>
-      <a href=""></a>
+      {% for icons in site.data.portfolio.social %}
+        <a href="{{ icons.link }}" class="icon-{{ icons.icon }}"></a>
+      {% endfor %}
     </div>
 
-    <div class="divider-lockup"><hr></div>
+    <hr class="bar">
 
-    <h2>{{ site.data.general.email }}</h2>
+    <a class="biglink" href="mailto:{{ site.data.general.email }}">{{ site.data.general.email }}</a>
 
   </div>
 
