@@ -1,15 +1,9 @@
-## Main Projects
+# Sources
 
-[Vector Manipulator](https://github.com/DerekStride/Homework-Solvers)
+[Artist Theme by DevTips](https://github.com/DevTips/Artists-Theme)
 
-A collection of little programs made in different languages that do various vector manipulations. I use these to help me learn the syntax and standard practices of new languages I learn.
+[DevTips Youtube](https://www.youtube.com/user/DevTipsForDesigners)
 
-[Atmega328 Powered LCD](https://http://derekstride.github.io/Atmega328-LCD/)
+**HUGE** Thanks for the video series that allowed me to create this, couldn't have done it with out it.
 
-I'm interested in Embedded systems and wanted to start a little project. This project uses the microcontroller from the Arduino UNO to control an LCD. The program is flashed to the chip by a Raspberry Pi.
-
-## Contact
-
-Derek Stride
-
-Email: `djgstride@gmail.com`
+A lot of the sections were taken directly from the Artist Theme, I never included all of them because I never intended to use them myself. However, I'm sure you can grab the other sections not included to use them without too much hassle. You might have to change variable names and add a section in the config files.
