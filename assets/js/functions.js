@@ -6,7 +6,7 @@ $(function() {
 
 // code swap funciton
 
-function code_swap (source_element, destination_element)
+function content_swap (source_element, destination_element)
 {
   var source = document.getElementById(source_element);
   var destination = document.getElementById(destination_element);

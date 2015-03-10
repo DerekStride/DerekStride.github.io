@@ -2,18 +2,18 @@
 title:      SYSC 2003 Axiom Board Features
 permalink:  /SYSC2003/axiom-board
 layout:     wrapper
-heading:    
+heading:
 folder:     sysc2003
-codeswap:
+contentswap:
 - header: LEDs
   url:    leds
 ---
 
 <nav>
 
-  {% for item in page.codeswap %}
+  {% for item in page.contentswap %}
 
-    <a href="javascript:code_swap('{{ item.url }}', 'axiom-board-code');">
+    <a href="javascript:content_swap('{{ item.url }}', 'axiom-board-code');">
       <div style="display:inline-block; text-align:center; line-height:40px; background:#333; width:24%; height:40px; margin-bottom:3px;">
           <strong>{{ item.header }}</strong>
       </div>
