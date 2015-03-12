@@ -10,6 +10,7 @@ All LCDs have a similar mode of operation, they generally have a way to send **i
 {% highlight c %}
 
 {% include code_snippets/{{ page.folder }}/imports.c %}
+{% include code_snippets/{{ page.folder }}/delay.c %}
 {% include code_snippets/{{ page.folder }}/LCD.c %}
 
 {% endhighlight %}
