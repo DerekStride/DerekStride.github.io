@@ -7,6 +7,12 @@ folder:     sysc2003
 contentswap:
 - header: LEDs
   url:    leds
+- header: LCD
+  url:    lcds
+- header: DC Motor
+  url:    dc-motor
+- header: Stepper
+  url:    stepper
 ---
 
 <nav>
@@ -45,6 +51,39 @@ contentswap:
 {% include code_snippets/{{ page.folder }}/rolling_blink.c %}
 {% include code_snippets/{{ page.folder }}/flash.c %}
 {% include code_snippets/{{ page.folder }}/leds.c %}
+
+{% endhighlight %}
+
+</div>
+
+<div id="lcds" style="display:none">
+
+{% highlight c %}
+
+{% include code_snippets/{{ page.folder }}/imports.c %}
+{% include code_snippets/{{ page.folder }}/delay.c %}
+{% include code_snippets/{{ page.folder }}/LCD.c %}
+
+{% endhighlight %}
+
+</div>
+
+<div id="stepper" style="display:none">
+
+{% highlight c %}
+
+{% include code_snippets/{{ page.folder }}/imports.c %}
+{% include code_snippets/{{ page.folder }}/stepper_motor.c %}
+
+{% endhighlight %}
+
+</div>
+
+<div id="dc-motor" style="display:none">
+
+{% highlight ca65 %}
+
+{% include code_snippets/{{ page.folder }}/dcmotor.s %}
 
 {% endhighlight %}
 
