@@ -88,3 +88,14 @@ contentswap:
 {% endhighlight %}
 
 </div>
+
+<div id="output-compare" style="display:none">
+
+{% highlight c %}
+
+{% include code_snippets/{{ page.folder }}/imports.c %}
+{% include code_snippets/{{ page.folder }}/output_compare.c %}
+
+{% endhighlight %}
+
+</div>

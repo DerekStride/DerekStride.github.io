@@ -3,5 +3,6 @@
  *  for all the HC12 ports along with other things.
  */
 #include "hcs12dp256.h"
+#include "basicLCD.h"
 #include <stdio.h>
 #include <stdlib.h>
