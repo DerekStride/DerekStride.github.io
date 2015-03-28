@@ -1,5 +1,5 @@
 ---
-layout: default
+layout:
 menu:
 - header: About Me
   url:    about
@@ -8,6 +8,25 @@ menu:
 - header: Contact Me
   url:    contact
 ---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>{{ site.data.general.title }}</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{ site.data.general.seo.description }}">
+  <meta rel="author" href="{{ site.data.general.seo.rel-author }}">
+  <meta rel="publisher" href="{{ site.data.general.seo.rel-publisher }}">
+
+  <link rel="shortcut icon" href="/assets/img/favicons/favicon.ico">
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <link rel="stylesheet" href="/assets/css/syntax.css">
+
+  {% include analytics.html %}
+
+</head>
+<body>
+
 <div class="wrapper">
 
   {% include about.html %}
@@ -17,3 +36,8 @@ menu:
   {% include contact.html %}
 
 <div>
+
+<script src="/assets/js/jquery-2.1.1.min.js"></script>
+<script src="/assets/js/functions.js" type="text/javascript"></script>
+</body>
+</html>
