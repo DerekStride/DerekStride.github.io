@@ -37,7 +37,7 @@ projects:
     Here's how to compile and run all the versions of this project. If you can even run them out of the box.
 - title: SYSC2003
   folder: 'sysc2003'
-  url: '/SYSC2003'
+  url: '/notes/sysc2003'
   excerpt:  >
     I'll Update this as I learn more but for now here's a sample on different important topics we covered.
 
