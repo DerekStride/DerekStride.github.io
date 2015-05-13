@@ -1,6 +1,5 @@
 ---
 title:      SYSC 2003 Axiom Board Features
-permalink:  /SYSC2003/axiom-board
 layout:     wrapper
 heading:
 folder:     sysc2003
