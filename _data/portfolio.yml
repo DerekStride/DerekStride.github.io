@@ -40,7 +40,11 @@ projects:
   url: '/notes/sysc2003'
   excerpt:  >
     I'll Update this as I learn more but for now here's a sample on different important topics we covered.
-
+- title: CU in the Air
+  folder: 'cu-in-the-air'
+  url: 'http://carletonslam.github.io/spacegoldfish/'
+  excerpt: >
+    CU in the Air is a group of Carleton University engineering students that have come together to put their love for creative thinking and problem solving to the test. As we are always looking for a challenge, the GSBC grabbed our attention immediately. Excited to see what kind of results we can produce, CU in the Air has officially joined the effort in celebrating an age where anyone can reach the edge of space for no more than a few hundred dollars.
 
 #-------------------------------
 # Contact Section
