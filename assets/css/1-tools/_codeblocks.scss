@@ -1,0 +1,22 @@
+table.highlighttable {
+  overflow-x:auto;
+  display:block;
+}
+
+table.highlighttable td.code {
+  width:100%;
+}
+
+pre code {
+  white-space: pre;
+}
+
+.highlighttable .linenos pre {
+  color: #4a4a40;
+  background: #e7e7e1;
+  border-radius: 10px 0px 0px 10px;
+}
+
+.highlighttable .code pre {
+  border-radius: 0px 10px 10px 0px;
+}

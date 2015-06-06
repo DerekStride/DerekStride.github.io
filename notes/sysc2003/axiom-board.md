@@ -12,6 +12,8 @@ contentswap:
   url:    dc-motor
 - header: Stepper
   url:    stepper
+- header: Output-compare
+  url:    output-compare
 ---
 
 <nav>
@@ -29,7 +31,7 @@ contentswap:
 
 <div id="axiom-board-code">
 
-{% highlight c %}
+{% highlight c linenos=table %}
 
 {% include code_snippets/{{ page.folder }}/imports.c %}
 {% include code_snippets/{{ page.folder }}/delay.c %}
@@ -43,7 +45,7 @@ contentswap:
 
 <div id="leds" style="display:none">
 
-{% highlight c %}
+{% highlight c linenos=table %}
 
 {% include code_snippets/{{ page.folder }}/imports.c %}
 {% include code_snippets/{{ page.folder }}/delay.c %}
@@ -57,7 +59,7 @@ contentswap:
 
 <div id="lcds" style="display:none">
 
-{% highlight c %}
+{% highlight c linenos=table %}
 
 {% include code_snippets/{{ page.folder }}/imports.c %}
 {% include code_snippets/{{ page.folder }}/delay.c %}
@@ -69,7 +71,7 @@ contentswap:
 
 <div id="stepper" style="display:none">
 
-{% highlight c %}
+{% highlight c linenos=table %}
 
 {% include code_snippets/{{ page.folder }}/imports.c %}
 {% include code_snippets/{{ page.folder }}/stepper_motor.c %}
@@ -80,7 +82,7 @@ contentswap:
 
 <div id="dc-motor" style="display:none">
 
-{% highlight ca65 %}
+{% highlight ca65 linenos=table %}
 
 {% include code_snippets/{{ page.folder }}/dcmotor.s %}
 
@@ -90,7 +92,7 @@ contentswap:
 
 <div id="output-compare" style="display:none">
 
-{% highlight c %}
+{% highlight c linenos=table %}
 
 {% include code_snippets/{{ page.folder }}/imports.c %}
 {% include code_snippets/{{ page.folder }}/output_compare.c %}
