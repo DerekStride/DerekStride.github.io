@@ -1,7 +1,6 @@
 ---
 title:      A Guide To Git
 layout :    default
-permalink:  active
 menu:
 - header: Introduction
   url:    introduction
