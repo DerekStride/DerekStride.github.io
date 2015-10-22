@@ -50,8 +50,8 @@ projects:
 # Available icons in assets/css/1-tools/_icons-icomoon.scss
 
 social:
-- icon: 'twitter'
-  link: 'https://twitter.com/Derek_Stride'
+# - icon: 'twitter'
+#   link: 'https://twitter.com/Derek_Stride'
 
 - icon: 'google'
   link: 'https://plus.google.com/+DerekStride'
