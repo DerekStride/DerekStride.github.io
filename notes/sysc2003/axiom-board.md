@@ -18,18 +18,18 @@ contentswap:
 
 <nav>
 
-  {% for item in page.contentswap %}
+  <!-- {% for item in page.contentswap %}
 
     <a href="javascript:content_swap('{{ item.url }}', 'axiom-board-code');">
       <div style="display:inline-block; text-align:center; line-height:40px; background:#333; width:24%; height:40px; margin-bottom:3px;">
           <strong>{{ item.header }}</strong>
       </div>
     </a>
-  {% endfor %}
+  {% endfor %} -->
 
 </nav>
 
-<div id="axiom-board-code">
+<div id="axiom-board-code" style="display:none">
 
 {% highlight c linenos=table %}
 
