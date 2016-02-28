@@ -33,16 +33,24 @@ projects:
   url: '/projects/homework-solvers'
   excerpt:  >
     Here's how to compile and run all the versions of this project. If you can even run them out of the box.
+
 - title: SYSC2003
   folder: 'sysc2003'
   url: '/notes/sysc2003'
   excerpt:  >
     I'll Update this as I learn more but for now here's a sample on different important topics we covered.
+
 - title: CU in the Air
   folder: 'cu-in-the-air'
   url: 'http://carletonslam.github.io/spacegoldfish/'
   excerpt: >
     CU in the Air is a group of Carleton University engineering students that have come together to put their love for creative thinking and problem solving to the test. As we are always looking for a challenge, the GSBC grabbed our attention immediately. Excited to see what kind of results we can produce, CU in the Air has officially joined the effort in celebrating an age where anyone can reach the edge of space for no more than a few hundred dollars.
+
+- title: The UML DSL
+  folder: 'the-uml-dsl'
+  url: '/yuml'
+  excerpt: >
+    A Ruby DSL for generating UML built on yuml.me
 
 #-------------------------------
 # Contact Section
