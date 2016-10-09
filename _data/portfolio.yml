@@ -22,6 +22,36 @@ skills:
 # Project Section
 
 projects:
+- title: Pigeon
+  folder: 'pigeon'
+  url: '/pigeon'
+  excerpt: >
+    A picture that you can send an SMS to.
+
+- title: CU in the Air
+  folder: 'cu-in-the-air'
+  url: 'http://staylateandmake.ca/spacegoldfish/'
+  excerpt: >
+    CU in the Air is a group of Carleton University engineering students that have come together to put their love for creative thinking and problem solving to the test. As we are always looking for a challenge, the GSBC grabbed our attention immediately. Excited to see what kind of results we can produce, CU in the Air has officially joined the effort in celebrating an age where anyone can reach the edge of space for no more than a few hundred dollars.
+
+- title: JSONCache
+  folder: 'jsoncache'
+  url: '/jsoncache'
+  excerpt: >
+    A lightweight filesystem cache for JSON data.
+
+- title: Lincoln
+  folder: 'lincoln'
+  url: 'http://staylateandmake.ca/lincoln'
+  excerpt: >
+    A slackbot for almost everything.
+
+- title: The UML DSL
+  folder: 'the-uml-dsl'
+  url: '/yuml'
+  excerpt: >
+    A Ruby DSL for generating UML built on yuml.me
+
 - title: Atmega328 LCD
   folder: 'atmega-lcd'
   url: '/projects/atmega328-lcd'
@@ -39,18 +69,6 @@ projects:
   url: '/notes/sysc2003'
   excerpt:  >
     I'll Update this as I learn more but for now here's a sample on different important topics we covered.
-
-- title: CU in the Air
-  folder: 'cu-in-the-air'
-  url: 'http://carletonslam.github.io/spacegoldfish/'
-  excerpt: >
-    CU in the Air is a group of Carleton University engineering students that have come together to put their love for creative thinking and problem solving to the test. As we are always looking for a challenge, the GSBC grabbed our attention immediately. Excited to see what kind of results we can produce, CU in the Air has officially joined the effort in celebrating an age where anyone can reach the edge of space for no more than a few hundred dollars.
-
-- title: The UML DSL
-  folder: 'the-uml-dsl'
-  url: '/yuml'
-  excerpt: >
-    A Ruby DSL for generating UML built on yuml.me
 
 #-------------------------------
 # Contact Section
