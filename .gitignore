@@ -1,6 +1,5 @@
-*_site
-*.old
-*.sass-cache
-.ruby-version
-.bundle/
-Gemfile.lock
+_site
+.sass-cache
+.jekyll-cache
+.jekyll-metadata
+vendor

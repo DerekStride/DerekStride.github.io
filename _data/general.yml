@@ -3,20 +3,8 @@
 
 title: Derek Stride
 email: djgstride@gmail.com
-tagline: "See | Solve | Save"
-
-tracking: UA-58890104-1
-
-#-------------------------------
-# SEO Section
-
-seo:
-  description: 'I talk about the latest and greatest technology, create guides, and hack on projects. I cover everything from the basics for begineers to advanced topics for university students.'
-  rel-author: 'https://plus.google.com/+DerekStride'
-  rel-publisher: 'https://plus.google.com/+DerekStride'
-
 
 #-------------------------------
 # Website Handles
 
-github: DerekStride
+github: derekstride
