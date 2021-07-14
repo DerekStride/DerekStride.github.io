@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+    {{ site.github | json }}
+  </script>
+
+  <title>{{ site.data.general.title }}</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{ site.data.general.title }}">
+  <meta property="og:site_name" content="{{ site.data.general.title }}">
+  <meta property="og:description" content="{{ site.data.general.title }}">
+  <meta property="og:title" content="Home">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="{{ site.github.url }}">
+  <meta rel="author" href="{{ site.data.general.seo.rel-author }}">
+  <meta rel="publisher" href="{{ site.data.general.seo.rel-publisher }}">
+
+  <link rel="stylesheet" href="/assets/css/bundle.css" />
+  <link rel="canonical" href="https://maximevaillancourt.com/">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="alternate" type="application/rss+xml" title="Maxime Vaillancourt" href="/rss.xml">
+</head>
+<body>
+  <div class="md:container md:mx-auto">
+    <article class="prose prose-sm sm:prose lg:prose-lg xl:prose-xl">
+      {{ content }}
+    </article>
+  </div>
+</body>
+</html>
