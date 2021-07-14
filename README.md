@@ -1,0 +1,1 @@
+[![Build and deploy to GitHub Pages](https://github.com/DerekStride/derekstride.github.io/actions/workflows/gh-pages.yml/badge.svg)](https://github.com/DerekStride/derekstride.github.io/actions/workflows/gh-pages.yml)
