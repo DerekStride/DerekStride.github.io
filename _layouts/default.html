@@ -1,31 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script>
-    {{ site.github | json }}
-  </script>
-
-  <title>{{ site.data.general.title }}</title>
+  <title>{{ page.title | default: site.data.general.title }}</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="{{ site.data.general.title }}">
+  <meta name="description" content="{{ site.data.general.description }}">
   <meta property="og:site_name" content="{{ site.data.general.title }}">
-  <meta property="og:description" content="{{ site.data.general.title }}">
-  <meta property="og:title" content="Home">
+  <meta property="og:description" content="{{ site.data.general.description }}">
+  <meta property="og:title" content="{{ page.title | default: site.data.general.title }}">
   <meta property="og:type" content="article">
   <meta property="og:url" content="{{ site.github.url }}">
-  <meta rel="author" href="{{ site.data.general.seo.rel-author }}">
-  <meta rel="publisher" href="{{ site.data.general.seo.rel-publisher }}">
+  <meta rel="author" href="{{ site.data.general.me }}">
+  <meta rel="publisher" href="{{ site.data.general.me }}">
 
   <link rel="stylesheet" href="/assets/css/bundle.css" />
   <link rel="canonical" href="{{ site.github.url }}">
-  <link rel="icon" href="/favicon.ico">
-  <link rel="alternate" type="application/rss+xml" title="{{ site.data.general.title }}" href="/feed.xml">
+  <link rel="alternate" type="application/rss+xml" title="{{ site.data.general.title }}" href="/rss.xml">
 </head>
 <body class="py-8">
-  <div class="md:container md:mx-auto">
+  <div class="md:container md:mx-auto px-4">
     {%- if page.id != "home" -%}
-      <nav class="py-4">
+      <nav>
         <a class="text-xl text-gray-500 hover:text-gray-900" href="/">Home</a>
       </nav>
     {%- endif -%}
