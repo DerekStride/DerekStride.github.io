@@ -3,7 +3,7 @@ layout: home
 id: home
 ---
 
-# Hi, I'm Derek
+# Hi, I'm Derek.
 
 I'm a software developer based in Ottawa, ON, working on storefront performance at [Shopify](https://www.shopify.ca/).
 
