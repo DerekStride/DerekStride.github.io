@@ -1,4 +1,5 @@
-title: Derek Stride
+title: derekstride
+author: derekstride
 email: djgstride@gmail.com
 
 plugins:
@@ -15,3 +16,11 @@ exclude:
   - "*.config.js"
   - "package*.json"
   - "node_modules"
+
+collections:
+  posts:
+    output: true
+    permalink: /:year/:month/:day/:title
+  books:
+    output: true
+    permalink: /:collection/:name

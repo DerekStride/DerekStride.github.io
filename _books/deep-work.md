@@ -3,9 +3,15 @@ layout: book
 title: Deep Work
 author: Cal Newport
 url: https://www.calnewport.com/books/deep-work/
+date: 2021-07-17
 ---
 
-## Deep Work is Valuable
-
 Placeholder text
+
+## Deep work is Valuable
+
+some list
+
+- point 1
+- point 2
 
