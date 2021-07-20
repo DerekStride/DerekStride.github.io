@@ -2,7 +2,7 @@
 layout: default
 ---
 
-<h1 class="py-8 text-4xl"><a class="no-underline hover:underline" href="{{ page.url }}">{{ page.title }} <span class="text-2xl text-gray-500"> by {{ page.author }}</span></a></h1>
+<h1 class="py-8 text-4xl"><a class="no-underline hover:underline" href="{{ page.book_url }}">{{ page.title }} <span class="text-2xl text-gray-500"> by {{ page.author }}</span></a></h1>
 <article class="prose prose-sm sm:prose lg:prose-lg xl:prose">
   <time datetime="{{ page.date | date_to_xmlschema }}">{{- page.date | date: "%B %-d, %Y" -}}</time>
   {{- content -}}

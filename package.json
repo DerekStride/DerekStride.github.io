@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "server": "bundle exec jekyll serve --livereload"
+    "server": "bundle exec jekyll serve --livereload --drafts"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.4.1",
