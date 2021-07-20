@@ -1,5 +1,6 @@
 ---
 layout: post
+title: How Shopify Dynamically Routes Storefront Traffic
 excerpt: >
   Fast continuous integration (CI) time and deployments are great ways to increase the velocity of getting changes into
   production. However, for time-critical use cases like ours removing the CI time and deployment altogether is even
