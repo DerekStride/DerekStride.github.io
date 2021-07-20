@@ -5,6 +5,7 @@ excerpt: >
   Fast continuous integration (CI) time and deployments are great ways to increase the velocity of getting changes into
   production. However, for time-critical use cases like ours removing the CI time and deployment altogether is even
   better.
+canonical_url: https://shopify.engineering/dynamically-route-storefront-traffic
 ---
 
 _This post [originally appeared on the Shopify Engineering

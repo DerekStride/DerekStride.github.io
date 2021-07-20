@@ -1,6 +1,7 @@
 title: derekstride
 author: derekstride
 email: djgstride@gmail.com
+url: https://derek.stride.host
 
 plugins:
   - jekyll-feed
