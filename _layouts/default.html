@@ -14,7 +14,11 @@
   <meta rel="publisher" href="{{ site.data.general.me }}">
 
   <link rel="stylesheet" href="/assets/css/bundle.css" />
-  <link rel="canonical" href="{{ site.github.url }}">
+  {%- if page.canonical_url -%}
+    <link rel="canonical" href="{{ page.canonical_url }}" />
+  {%- else -%}
+    <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
+  {%- endif -%}
   <link rel="alternate" type="application/rss+xml" title="{{ site.data.general.title }}" href="/rss.xml">
 </head>
 <body class="py-8">
