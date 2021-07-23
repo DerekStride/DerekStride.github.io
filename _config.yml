@@ -19,6 +19,7 @@ exclude:
   - "node_modules"
   - "bin"
   - "graphs"
+  - "assets/images/graphs"
   - "tmp"
 
 collections:

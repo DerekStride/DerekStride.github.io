@@ -18,4 +18,5 @@ gem "wdm", "~> 0.1.1", :platforms => [:mingw, :x64_mingw, :mswin]
 
 group :development do
   gem 'webrick'
+  gem 'pry-byebug'
 end

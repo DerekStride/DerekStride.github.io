@@ -18,11 +18,11 @@ if [ "$#" -gt 0 ]; then
       exit 0
       ;;
     generate)
-      bin/graphviz-generate
+      bin/graphviz-generate $2
       exit $?
       ;;
     clean)
-      bin/graphviz-clean
+      bin/graphviz-clean $2
       exit $?
       ;;
     edit)
