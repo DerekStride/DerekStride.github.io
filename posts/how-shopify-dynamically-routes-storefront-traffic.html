@@ -20,7 +20,7 @@
 <body class="py-8">
   <div class="md:container md:mx-auto px-4"><nav>
         <a class="text-xl text-gray-500 hover:text-gray-900" href="/">Home</a>
-      </nav><article class="prose prose-sm sm:prose lg:prose-lg xl:prose">
+      </nav><article class="prose prose-sm sm:prose lg:prose-lg xl:prose-xl">
   <h1 class="pt-8">How Shopify Dynamically Routes Storefront Traffic</h1>
   <time datetime="2021-04-09T00:00:00+00:00">April 9, 2021</time><p><em>This post <a href="https://shopify.engineering/dynamically-route-storefront-traffic">originally appeared on the Shopify Engineering
 blog</a> on April 9, 2021.</em></p>
@@ -225,12 +225,12 @@ different Lua callbacks are run in the nginx request lifecycle." data-src="https
 
 <h2>The Future of Routing Rules</h2>
 <p>At this point, we're starting to simplify this system because the new storefront implementation is serving almost all storefront traffic. We’ll no longer need to verify or render traffic with the legacy storefront implementation once the migration is complete, so we'll be undoing the work we’ve done and going back to the hardcoded rules approach of the early days of the project. Although that doesn’t mean the routing rules are going away completely, the flexibility provided by the routing rules allowed us to build the verification system and stand up a separate deployment for load testing. These features weren’t possible before with the legacy storefront implementation. While we won’t be changing the routing between storefront implementations, the rule system will evolve to support new features.</p>
-<hr />
 </p>
+<hr class="pb-12" />
 </article>
 
-<footer>
-  My blog is also available as an <a target="_blank" class="underline" href="/rss.xml">RSS</a> feed.
+<footer>All of my posts are also available as an <a target="_blank" class="underline" href="/posts/rss.xml">RSS</a> feed.
+
 </footer>
 </div>
 </body>
