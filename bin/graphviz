@@ -1,0 +1,45 @@
+#!/bin/bash
+# A wrapper script for working with the bin/graphviz-* tools.
+
+_help() {
+  cat << EOF
+usage: $0 [OPTIONS]
+    [-h | --help]        Show this message
+    generate             Generate jpg images from graphviz files.
+    clean                Remove generated jpg images.
+    edit <filename>      Generate and open jpg for graphviz source: <filename>.
+EOF
+}
+
+if [ "$#" -gt 0 ]; then
+  case "$1" in
+    --help|-h)
+      _help
+      exit 0
+      ;;
+    generate)
+      bin/graphviz-generate
+      exit $?
+      ;;
+    clean)
+      bin/graphviz-clean
+      exit $?
+      ;;
+    edit)
+      bin/graphviz-edit $2
+      status=$?
+      if [ $status -ne 0 ]; then
+        _help
+        exit $status
+      fi
+      exit 0
+      ;;
+    *)
+      echo "unknown option: $1"
+      _help
+      exit 1
+      ;;
+  esac
+else
+  _help
+fi

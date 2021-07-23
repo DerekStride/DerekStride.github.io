@@ -17,6 +17,9 @@ exclude:
   - "*.config.js"
   - "package*.json"
   - "node_modules"
+  - "bin"
+  - "graphs"
+  - "tmp"
 
 collections:
   posts:
