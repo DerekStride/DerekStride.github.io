@@ -211,4 +211,3 @@ different Lua callbacks are run in the nginx request lifecycle." data-src="https
 
 <h2>The Future of Routing Rules</h2>
 <p>At this point, we're starting to simplify this system because the new storefront implementation is serving almost all storefront traffic. We’ll no longer need to verify or render traffic with the legacy storefront implementation once the migration is complete, so we'll be undoing the work we’ve done and going back to the hardcoded rules approach of the early days of the project. Although that doesn’t mean the routing rules are going away completely, the flexibility provided by the routing rules allowed us to build the verification system and stand up a separate deployment for load testing. These features weren’t possible before with the legacy storefront implementation. While we won’t be changing the routing between storefront implementations, the rule system will evolve to support new features.</p>
-<hr>
