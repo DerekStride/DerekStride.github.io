@@ -6,4 +6,7 @@ layout: default
 <article class="prose prose-sm sm:prose lg:prose-lg xl:prose">
   <time datetime="{{ page.date | date_to_xmlschema }}">{{- page.date | date: "%B %-d, %Y" -}}</time>
   {{- content -}}
+  <hr class="pb-12" />
 </article>
+
+<footer>{%- include books-rss.md -%}</footer>

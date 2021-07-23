@@ -2,12 +2,11 @@
 layout: default
 ---
 
-<article class="prose prose-sm sm:prose lg:prose-lg xl:prose">
+<article class="prose prose-sm sm:prose lg:prose-lg xl:prose-xl">
   <h1 class="pt-8">{{ page.title }}</h1>
   <time datetime="{{ page.date | date_to_xmlschema }}">{{- page.date | date: "%B %-d, %Y" -}}</time>
   {{- content -}}
+  <hr class="pb-12" />
 </article>
 
-<footer>
-  My blog is also available as an <a target="_blank" class="underline" href="/rss.xml">RSS</a> feed.
-</footer>
+<footer>{%- include posts-rss.md -%}</footer>

@@ -8,10 +8,10 @@ plugins:
   - jekyll-postcss
 
 feed:
-  path: rss.xml
-
-include:
-  - '_pages'
+  path: /posts/rss.xml
+  collections:
+    books:
+      path: /books/rss.xml
 
 exclude:
   - "*.config.js"
@@ -21,7 +21,7 @@ exclude:
 collections:
   posts:
     output: true
-    permalink: /:year/:month/:day/:title
+    permalink: /:collection/:title
   books:
     output: true
-    permalink: /:collection/:name
+    permalink: /:collection/:title
