@@ -1,0 +1,15 @@
+#!/bin/bash
+# Reads the GraphViz file from the argument list, converts it to a jpg and
+# opens it with the `open` utility.
+
+if [ -f "$1" ]; then
+  filename=$(basename -- "$1")
+  source="${filename%.*}"
+  dest="tmp/${source}.jpg"
+
+  dot -Tjpg -o $dest $1
+  open $dest
+else
+  echo "file not found: $1"
+  exit 1
+fi

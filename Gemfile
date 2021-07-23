@@ -1,6 +1,7 @@
 source "https://rubygems.org"
 
 gem "jekyll", "~> 4.2.0"
+gem 'ruby-graphviz'
 group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.12"
   gem 'jekyll-postcss'
@@ -18,4 +19,5 @@ gem "wdm", "~> 0.1.1", :platforms => [:mingw, :x64_mingw, :mswin]
 
 group :development do
   gem 'webrick'
+  gem 'pry-byebug'
 end

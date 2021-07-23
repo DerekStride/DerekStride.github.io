@@ -1,0 +1,22 @@
+#!/bin/bash
+# Reads the GraphViz files from graphs/*.dot coverts them to jpg with the `dot`
+# tool and stores the output in assets/images/*.jpg if they don't exist.
+# Accepts an optional destination folder, defaults to assets/images/graphs.
+
+if [ "$#" -gt 0 ]; then
+  dest_folder=$1
+else
+  dest_folder="assets/images/graphs"
+fi
+
+for dot in graphs/*.dot; do
+  filename=$(basename -- "$dot")
+  source="${filename%.*}"
+  dest="${dest_folder}/${source}.jpg"
+
+  if [ ! -f $dest ]; then
+    set -x
+    dot -Tjpg -o $dest $dot
+    { set +x; } 2> /dev/null
+  fi
+done
