@@ -6,6 +6,7 @@ url: https://derek.stride.host
 plugins:
   - jekyll-feed
   - jekyll-postcss
+  - jekyll-graphviz
 
 feed:
   path: /posts/rss.xml
