@@ -62,6 +62,8 @@ example a file that includes [HTML](https://github.com/tree-sitter/tree-sitter-h
 frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 allowfullscreen></iframe>
 
+![](/assets/images/graphs/tree-sitter-parsing-part-2.svg)
+
 ## How to build a parser
 
 [tree-sitter documentation](https://tree-sitter.github.io/tree-sitter/creating-parsers)
