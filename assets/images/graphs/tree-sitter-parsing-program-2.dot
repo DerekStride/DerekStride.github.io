@@ -1,0 +1,20 @@
+---
+---
+
+digraph treeSitterParseProgram2 {
+  graph [fontsize=24, fontname = "roboto"]
+  edge [fontsize=24, fontname = "roboto"]
+  node [fontsize=24, fontname = "roboto"]
+  ranksep = .25
+  nodesep = .1
+  edge [style="setlinewidth(3)"]
+
+  x [shape=none, label="x"]
+  product [shape=none, label="*"]
+  p -> v [arrowhead=none]
+  y [shape=none, label="y"]
+  plus [shape=none, label="+"]
+  z [shape=none, label="z"]
+  v [shape=none, label=""]
+  p [shape=none, label=""]
+}

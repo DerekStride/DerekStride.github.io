@@ -62,7 +62,67 @@ example a file that includes [HTML](https://github.com/tree-sitter/tree-sitter-h
 frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 allowfullscreen></iframe>
 
-![](/assets/images/graphs/tree-sitter-parsing-part-2.svg)
+### How does a Parser Work?
+
+<div class="flex flex-col flex-nowrap content-around">
+  <img src="/assets/images/graphs/tree-sitter-parsing-program-0.svg" alt="">
+</div>
+
+<div class="flex flex-col flex-nowrap content-around">
+  <img src="/assets/images/graphs/tree-sitter-parsing-program-1.svg" alt="">
+  <div class="flex flex-row flex-nowrap items-center pl-16">
+    <span class="font-bold text-2xl">Stack:</span>
+    <img src="/assets/images/graphs/tree-sitter-parsing-part-0.svg" alt="">
+  </div>
+</div>
+
+<div class="flex flex-col flex-nowrap content-around">
+  <img src="/assets/images/graphs/tree-sitter-parsing-program-2.svg" alt="">
+  <div class="flex flex-row flex-nowrap items-center pl-16">
+    <span class="font-bold text-2xl">Stack:</span>
+    <img src="/assets/images/graphs/tree-sitter-parsing-part-1.svg" alt="">
+  </div>
+</div>
+
+<div class="flex flex-col flex-nowrap content-around">
+  <img src="/assets/images/graphs/tree-sitter-parsing-program-3.svg" alt="">
+  <div class="flex flex-row flex-nowrap items-center pl-16">
+    <span class="font-bold text-2xl">Stack:</span>
+    <img src="/assets/images/graphs/tree-sitter-parsing-part-2.svg" alt="">
+  </div>
+</div>
+
+<div class="flex flex-col flex-nowrap content-around">
+  <img src="/assets/images/graphs/tree-sitter-parsing-program-3.svg" alt="">
+  <div class="flex flex-row flex-nowrap items-center pl-16">
+    <span class="font-bold text-2xl">Stack:</span>
+    <img src="/assets/images/graphs/tree-sitter-parsing-part-3.svg" alt="">
+  </div>
+</div>
+
+<div class="flex flex-col flex-nowrap content-around">
+  <img src="/assets/images/graphs/tree-sitter-parsing-program-4.svg" alt="">
+  <div class="flex flex-row flex-nowrap items-center pl-16">
+    <span class="font-bold text-2xl">Stack:</span>
+    <img src="/assets/images/graphs/tree-sitter-parsing-part-4.svg" alt="">
+  </div>
+</div>
+
+<div class="flex flex-col flex-nowrap content-around">
+  <img src="/assets/images/graphs/tree-sitter-parsing-program-5.svg" alt="">
+  <div class="flex flex-row flex-nowrap items-center pl-16">
+    <span class="font-bold text-2xl">Stack:</span>
+    <img src="/assets/images/graphs/tree-sitter-parsing-part-5.svg" alt="">
+  </div>
+</div>
+
+<div class="flex flex-col flex-nowrap content-around">
+  <img src="/assets/images/graphs/tree-sitter-parsing-program-5.svg" alt="">
+  <div class="flex flex-row flex-nowrap items-center pl-16">
+    <span class="font-bold text-2xl">Stack:</span>
+    <img src="/assets/images/graphs/tree-sitter-parsing-part-6.svg" alt="">
+  </div>
+</div>
 
 ## How to build a parser
 
