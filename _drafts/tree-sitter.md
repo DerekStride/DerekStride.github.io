@@ -58,9 +58,11 @@ example a file that includes [HTML](https://github.com/tree-sitter/tree-sitter-h
 
 ## How does tree-sitter Work?
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Jes3bD6P0To" title="YouTube video player"
-frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-allowfullscreen></iframe>
+<div class="aspect-w-16 aspect-h-9">
+  <iframe src="https://www.youtube-nocookie.com/embed/Jes3bD6P0To" title="YouTube video player" frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen></iframe>
+</div>
 
 ### How does a Parser Work?
 
@@ -70,7 +72,7 @@ allowfullscreen></iframe>
 
 <div class="flex flex-col flex-nowrap content-around">
   <img src="/assets/images/graphs/tree-sitter-parsing-program-1.svg" alt="">
-  <div class="flex flex-row flex-nowrap items-center pl-16">
+  <div class="flex flex-row flex-nowrap items-center pl-8 sm:pl-16">
     <span class="font-bold text-2xl">Stack:</span>
     <img src="/assets/images/graphs/tree-sitter-parsing-part-0.svg" alt="">
   </div>
@@ -78,7 +80,7 @@ allowfullscreen></iframe>
 
 <div class="flex flex-col flex-nowrap content-around">
   <img src="/assets/images/graphs/tree-sitter-parsing-program-2.svg" alt="">
-  <div class="flex flex-row flex-nowrap items-center pl-16">
+  <div class="flex flex-row flex-nowrap items-center pl-8 sm:pl-16">
     <span class="font-bold text-2xl">Stack:</span>
     <img src="/assets/images/graphs/tree-sitter-parsing-part-1.svg" alt="">
   </div>
@@ -86,7 +88,7 @@ allowfullscreen></iframe>
 
 <div class="flex flex-col flex-nowrap content-around">
   <img src="/assets/images/graphs/tree-sitter-parsing-program-3.svg" alt="">
-  <div class="flex flex-row flex-nowrap items-center pl-16">
+  <div class="flex flex-row flex-nowrap items-center pl-8 sm:pl-16">
     <span class="font-bold text-2xl">Stack:</span>
     <img src="/assets/images/graphs/tree-sitter-parsing-part-2.svg" alt="">
   </div>
@@ -94,7 +96,7 @@ allowfullscreen></iframe>
 
 <div class="flex flex-col flex-nowrap content-around">
   <img src="/assets/images/graphs/tree-sitter-parsing-program-3.svg" alt="">
-  <div class="flex flex-row flex-nowrap items-center pl-16">
+  <div class="flex flex-row flex-nowrap items-center pl-8 sm:pl-16">
     <span class="font-bold text-2xl">Stack:</span>
     <img src="/assets/images/graphs/tree-sitter-parsing-part-3.svg" alt="">
   </div>
@@ -102,7 +104,7 @@ allowfullscreen></iframe>
 
 <div class="flex flex-col flex-nowrap content-around">
   <img src="/assets/images/graphs/tree-sitter-parsing-program-4.svg" alt="">
-  <div class="flex flex-row flex-nowrap items-center pl-16">
+  <div class="flex flex-row flex-nowrap items-center pl-8 sm:pl-16">
     <span class="font-bold text-2xl">Stack:</span>
     <img src="/assets/images/graphs/tree-sitter-parsing-part-4.svg" alt="">
   </div>
@@ -110,7 +112,7 @@ allowfullscreen></iframe>
 
 <div class="flex flex-col flex-nowrap content-around">
   <img src="/assets/images/graphs/tree-sitter-parsing-program-5.svg" alt="">
-  <div class="flex flex-row flex-nowrap items-center pl-16">
+  <div class="flex flex-row flex-nowrap items-center pl-8 sm:pl-16">
     <span class="font-bold text-2xl">Stack:</span>
     <img src="/assets/images/graphs/tree-sitter-parsing-part-5.svg" alt="">
   </div>
@@ -118,7 +120,7 @@ allowfullscreen></iframe>
 
 <div class="flex flex-col flex-nowrap content-around">
   <img src="/assets/images/graphs/tree-sitter-parsing-program-5.svg" alt="">
-  <div class="flex flex-row flex-nowrap items-center pl-16">
+  <div class="flex flex-row flex-nowrap items-center pl-8 sm:pl-16">
     <span class="font-bold text-2xl">Stack:</span>
     <img src="/assets/images/graphs/tree-sitter-parsing-part-6.svg" alt="">
   </div>
