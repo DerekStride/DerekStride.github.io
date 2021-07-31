@@ -1,0 +1,57 @@
+---
+---
+
+// var a = new B(); <- assignment
+// a.c(d);          <- method_call
+// return a;        <- return
+
+digraph treeSitterIncremental1 {
+  graph [fontsize=24, fontname = "roboto"]
+  edge [fontsize=24, fontname = "roboto", style="setlinewidth(3)" arrowhead="none"]
+  node [fontsize=24, fontname = "roboto", style="setlinewidth(3)"]
+  ranksep = 0.5
+  nodesep = .25
+
+  program [label="program", color="darkgreen"]
+
+  assignment [label="assignment"]
+  variable_declaration [label="variable_declaration"]
+  var_identifier [label="identifier"]
+  expression1 [label="expression"]
+
+  call_expression [label="call_expression", color="darkgreen"]
+  method_call [label="method_call"]
+  receiver [label="receiver"]
+  method [label="method"]
+  arguments [label="arguments", color="darkgreen"]
+  open_p [label="("]
+  argument [label="identifier", color="darkgreen"]
+  close_p [label=")"]
+
+  return [label="return_statement"]
+  return_keyword [label="return"]
+  return_expression [label="expression"]
+  return_a [label="identifier"]
+
+  end [shape=none label="END"]
+
+  program -> assignment
+  assignment -> variable_declaration
+  variable_declaration -> var_identifier
+  variable_declaration -> expression1
+
+  program -> call_expression -> method_call
+  method_call -> receiver
+  method_call -> method
+  call_expression -> arguments
+  arguments -> open_p
+  arguments -> argument
+  arguments -> close_p
+
+  program -> return
+  return -> return_keyword
+  return -> return_expression
+  return_expression -> return_a
+
+  program -> end
+}

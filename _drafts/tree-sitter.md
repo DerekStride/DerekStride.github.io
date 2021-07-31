@@ -126,6 +126,18 @@ example a file that includes [HTML](https://github.com/tree-sitter/tree-sitter-h
   </div>
 </div>
 
+![](/assets/images/graphs/tree-sitter-glr-0.svg)
+![](/assets/images/graphs/tree-sitter-glr-1.svg)
+![](/assets/images/graphs/tree-sitter-glr-2.svg)
+![](/assets/images/graphs/tree-sitter-glr-3.svg)
+![](/assets/images/graphs/tree-sitter-glr-4.svg)
+
+![](/assets/images/graphs/tree-sitter-glr-error-0.svg)
+![](/assets/images/graphs/tree-sitter-glr-error-1.svg)
+
+![](/assets/images/graphs/tree-sitter-incremental-0.svg)
+![](/assets/images/graphs/tree-sitter-incremental-1.svg)
+
 ## How to build a parser
 
 [tree-sitter documentation](https://tree-sitter.github.io/tree-sitter/creating-parsers)
