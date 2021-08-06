@@ -1,4 +1,409 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://derek.stride.host/posts/rss.xml" rel="self" type="application/atom+xml" /><link href="https://derek.stride.host/" rel="alternate" type="text/html" /><updated>2021-07-24T16:40:32+00:00</updated><id>https://derek.stride.host/posts/rss.xml</id><title type="html">derekstride</title><author><name>derekstride</name></author><entry><title type="html">How Shopify Dynamically Routes Storefront Traffic</title><link href="https://derek.stride.host/posts/how-shopify-dynamically-routes-storefront-traffic" rel="alternate" type="text/html" title="How Shopify Dynamically Routes Storefront Traffic" /><published>2021-04-09T00:00:00+00:00</published><updated>2021-04-09T00:00:00+00:00</updated><id>https://derek.stride.host/posts/how-shopify-dynamically-routes-storefront-traffic</id><content type="html" xml:base="https://derek.stride.host/posts/how-shopify-dynamically-routes-storefront-traffic">&lt;p&gt;&lt;em&gt;This post &lt;a href=&quot;https://shopify.engineering/dynamically-route-storefront-traffic&quot;&gt;originally appeared on the Shopify Engineering
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://derek.stride.host/posts/rss.xml" rel="self" type="application/atom+xml" /><link href="https://derek.stride.host/" rel="alternate" type="text/html" /><updated>2021-08-06T21:09:35+00:00</updated><id>https://derek.stride.host/posts/rss.xml</id><title type="html">derekstride</title><author><name>derekstride</name></author><entry><title type="html">A Comprehensive Introduction to Tree-sitter</title><link href="https://derek.stride.host/posts/a-comprehensive-introduction-to-tree-sitter" rel="alternate" type="text/html" title="A Comprehensive Introduction to Tree-sitter" /><published>2021-08-06T00:00:00+00:00</published><updated>2021-08-06T00:00:00+00:00</updated><id>https://derek.stride.host/posts/a-comprehensive-introduction-to-tree-sitter</id><content type="html" xml:base="https://derek.stride.host/posts/a-comprehensive-introduction-to-tree-sitter">&lt;p&gt;Check out the &lt;a href=&quot;https://github.com/tree-sitter/tree-sitter&quot;&gt;tree-sitter&lt;/a&gt; repo on GitHub and their
+&lt;a href=&quot;https://tree-sitter.github.io/tree-sitter/&quot;&gt;documentation&lt;/a&gt; if you’re unfamiliar with the project. TL;DR from the
+GitHub repo:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Tree-sitter is a parser generator tool and an incremental parsing library. It can build a concrete syntax tree for a
+source file and efficiently update the syntax tree as the source file is edited.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Tree-sitter allows you to write a &lt;a href=&quot;https://github.com/Shopify/tree-sitter-liquid/blob/main/grammar.js&quot;&gt;grammar.js&lt;/a&gt; file
+that describes the grammar of a programming language. It generates a complete parser for your language with no
+dependencies in a file called &lt;a href=&quot;https://github.com/Shopify/tree-sitter-liquid/blob/main/src/parser.c&quot;&gt;src/parser.c&lt;/a&gt;. It
+also generates bindings for various languages like
+&lt;a href=&quot;https://github.com/tree-sitter/tree-sitter/blob/master/lib/binding_rust/README.md&quot;&gt;Rust&lt;/a&gt; and
+&lt;a href=&quot;https://github.com/tree-sitter/tree-sitter/blob/master/lib/binding_web/README.md&quot;&gt;WASM&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Use an &lt;a href=&quot;https://en.wikipedia.org/wiki/S-expression&quot;&gt;S-expression&lt;/a&gt; syntax to query the
+&lt;a href=&quot;https://tree-sitter.github.io/tree-sitter/creating-parsers#command-parse&quot;&gt;AST&lt;/a&gt; from a tree-sitter parser. The
+documentation includes a &lt;a href=&quot;https://tree-sitter.github.io/tree-sitter/playground&quot;&gt;playground&lt;/a&gt; where you can write code,
+see the output AST, and query it with an S-expression.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Try these out in the playground&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# Code&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;A&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;foo&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;hi&apos;&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;no&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;foo&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-scheme highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;call&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;method:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;identifier&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;@function&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;constant&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;@constant&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;method&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;name:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;identifier&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;@function&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;declaration&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;&quot;def&quot;&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;&quot;class&quot;&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;&quot;end&quot;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;@keyword&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;We can use &lt;a href=&quot;https://tree-sitter.github.io/tree-sitter/using-parsers#multi-language-documents&quot;&gt;multiple parsers&lt;/a&gt; on a
+single source file because they work on ranges within a file. For example, a file that includes
+&lt;a href=&quot;https://github.com/tree-sitter/tree-sitter-html&quot;&gt;HTML&lt;/a&gt;,
+&lt;a href=&quot;https://github.com/tree-sitter/tree-sitter-javascript&quot;&gt;javascript&lt;/a&gt;,
+&lt;a href=&quot;https://github.com/tree-sitter/tree-sitter-css&quot;&gt;CSS&lt;/a&gt;, and &lt;a href=&quot;https://github.com/Shopify/tree-sitter-liquid&quot;&gt;Liquid&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Tree-sitter is not an alternative to &lt;a href=&quot;https://microsoft.github.io/language-server-protocol/&quot;&gt;language servers&lt;/a&gt;. They
+serve a different purpose and have properties that make them better at some tasks than tree-sitter and properties that
+make them worse at others. Generally speaking, tree-sitter works on a per-file basis and language servers work at the
+project level. Language servers each have their dependencies and communicate via RPC with the client in the editor.
+Tree-sitter has no dependencies and is much faster. It also provides an AST that allows arbitrary analysis.&lt;/p&gt;
+
+&lt;h2 id=&quot;how-does-a-tree-sitter-parser-work&quot;&gt;How does a tree-sitter Parser Work?&lt;/h2&gt;
+
+&lt;div class=&quot;aspect-w-16 aspect-h-9&quot;&gt;
+  &lt;iframe src=&quot;https://www.youtube-nocookie.com/embed/Jes3bD6P0To&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;p&gt;This section is taken from the Strange Loop Conference talk &lt;em&gt;Tree-sitter - a new parsing system for programming tools&lt;/em&gt;
+by Max Brunsfeld.&lt;/p&gt;
+
+&lt;p&gt;Tree-sitter is an incremental generalized left-right (GLR) Parser. Let’s look at each term individually to understand
+what they mean.&lt;/p&gt;
+
+&lt;h3 id=&quot;what-is-an-lr-parser&quot;&gt;What is an LR Parser?&lt;/h3&gt;
+
+&lt;p&gt;An LR parser will read a line of text from left to right without any backtracking. The parser uses a lexer function to
+read each character and group them into tokens. Then it uses a parse table to decide how to group those tokens into
+trees.&lt;/p&gt;
+
+&lt;p&gt;Take the following program as an example, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;x * y + z&lt;/code&gt;. In grade school, math teachers instruct students about the order
+of operations. They learn first to evaluate &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;x * y&lt;/code&gt; and then add &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;z&lt;/code&gt; to the result. A parser will convert the program
+into a syntax tree for a computer to understand. The Figure 1 shows the parser at the start of the program. In Figure 2,
+3, and 4 the parser pushes each token onto the stack. The vertical bar represents the location of the parser.&lt;/p&gt;
+
+&lt;figure class=&quot;flex flex-col flex-nowrap content-around&quot;&gt;
+  &lt;img src=&quot;/assets/images/graphs/tree-sitter-parsing-program-0.svg&quot; alt=&quot;Figure 1: Initial state of the parser.&quot; /&gt;
+  &lt;figcaption&gt;&lt;p&gt;&lt;strong&gt;&lt;em&gt;Figure 1: Initial state of the parser.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;figure class=&quot;flex flex-col flex-nowrap content-around&quot;&gt;
+  &lt;img src=&quot;/assets/images/graphs/tree-sitter-parsing-program-1.svg&quot; alt=&quot;***Figure 2a: The state of the parser after it pushes the first token `x` onto the stack.***&quot; /&gt;
+  &lt;div class=&quot;flex flex-row flex-nowrap items-center pl-8 sm:pl-16&quot;&gt;
+    &lt;span class=&quot;font-bold text-2xl&quot;&gt;Stack:&lt;/span&gt;
+    &lt;img src=&quot;/assets/images/graphs/tree-sitter-parsing-part-0.svg&quot; alt=&quot;***Figure 2b: The state of the parser after it pushes the first token `x` onto the stack.***&quot; /&gt;
+  &lt;/div&gt;
+  &lt;figcaption&gt;&lt;p&gt;&lt;strong&gt;&lt;em&gt;Figure 2: The state of the parser after it pushes the first token &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;x&lt;/code&gt; onto the stack.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;figure class=&quot;flex flex-col flex-nowrap content-around&quot;&gt;
+  &lt;img src=&quot;/assets/images/graphs/tree-sitter-parsing-program-2.svg&quot; alt=&quot;***Figure 3a: The state of the parser after it pushes the second token `*` onto the stack.***&quot; /&gt;
+  &lt;div class=&quot;flex flex-row flex-nowrap items-center pl-8 sm:pl-16&quot;&gt;
+    &lt;span class=&quot;font-bold text-2xl&quot;&gt;Stack:&lt;/span&gt;
+    &lt;img src=&quot;/assets/images/graphs/tree-sitter-parsing-part-1.svg&quot; alt=&quot;***Figure 3b: The state of the parser after it pushes the second token `*` onto the stack.***&quot; /&gt;
+  &lt;/div&gt;
+  &lt;figcaption&gt;&lt;p&gt;&lt;strong&gt;&lt;em&gt;Figure 3: The state of the parser after it pushes the second token &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;*&lt;/code&gt; onto the stack.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;figure class=&quot;flex flex-col flex-nowrap content-around&quot;&gt;
+  &lt;img src=&quot;/assets/images/graphs/tree-sitter-parsing-program-3.svg&quot; alt=&quot;***Figure 4a: The state of the parser after it pushes the third token `y` onto the stack.***&quot; /&gt;
+  &lt;div class=&quot;flex flex-row flex-nowrap items-center pl-8 sm:pl-16&quot;&gt;
+    &lt;span class=&quot;font-bold text-2xl&quot;&gt;Stack:&lt;/span&gt;
+    &lt;img src=&quot;/assets/images/graphs/tree-sitter-parsing-part-2.svg&quot; alt=&quot;***Figure 4b: The state of the parser after it pushes the third token `y` onto the stack.***&quot; /&gt;
+  &lt;/div&gt;
+  &lt;figcaption&gt;&lt;p&gt;&lt;strong&gt;&lt;em&gt;Figure 4: The state of the parser after it pushes the third token &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;y&lt;/code&gt; onto the stack.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;The parse table will indicate that the parser needs to perform a different action when encountering the “+” token. The
+reduction action tells the parser to pop tokens off the stack, group them into a tree, and push the tree back onto the
+stack. Figure 5 below displays the stack after the reduction. Figure 6 and 7 show the parser pushing the rest of the
+tokens onto the stack.&lt;/p&gt;
+&lt;figure class=&quot;flex flex-col flex-nowrap content-around&quot;&gt;
+  &lt;img src=&quot;/assets/images/graphs/tree-sitter-parsing-program-3.svg&quot; alt=&quot;***Figure 5a: The state of the parser after the first reduce action. It pops each token off the stack and builds a tree.***&quot; /&gt;
+  &lt;div class=&quot;flex flex-row flex-nowrap items-center pl-8 sm:pl-16&quot;&gt;
+    &lt;span class=&quot;font-bold text-2xl&quot;&gt;Stack:&lt;/span&gt;
+    &lt;img src=&quot;/assets/images/graphs/tree-sitter-parsing-part-3.svg&quot; alt=&quot;***Figure 5b: The state of the parser after the first reduce action. It pops each token off the stack and builds a tree.***&quot; /&gt;
+  &lt;/div&gt;
+  &lt;figcaption&gt;&lt;p&gt;&lt;strong&gt;&lt;em&gt;Figure 5: The state of the parser after the first reduce action. It pops each token off the stack and builds a tree.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;figure class=&quot;flex flex-col flex-nowrap content-around&quot;&gt;
+  &lt;img src=&quot;/assets/images/graphs/tree-sitter-parsing-program-4.svg&quot; alt=&quot;***Figure 6a: The state of the parser after it pushes the fourth token `+` onto the stack.***&quot; /&gt;
+  &lt;div class=&quot;flex flex-row flex-nowrap items-center pl-8 sm:pl-16&quot;&gt;
+    &lt;span class=&quot;font-bold text-2xl&quot;&gt;Stack:&lt;/span&gt;
+    &lt;img src=&quot;/assets/images/graphs/tree-sitter-parsing-part-4.svg&quot; alt=&quot;***Figure 6b: The state of the parser after it pushes the fourth token `+` onto the stack.***&quot; /&gt;
+  &lt;/div&gt;
+  &lt;figcaption&gt;&lt;p&gt;&lt;strong&gt;&lt;em&gt;Figure 6: The state of the parser after it pushes the fourth token &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;+&lt;/code&gt; onto the stack.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;figure class=&quot;flex flex-col flex-nowrap content-around&quot;&gt;
+  &lt;img src=&quot;/assets/images/graphs/tree-sitter-parsing-program-5.svg&quot; alt=&quot;***Figure 7a: The state of the parser after it pushes the fifth and final token `z` onto the stack.***&quot; /&gt;
+  &lt;div class=&quot;flex flex-row flex-nowrap items-center pl-8 sm:pl-16&quot;&gt;
+    &lt;span class=&quot;font-bold text-2xl&quot;&gt;Stack:&lt;/span&gt;
+    &lt;img src=&quot;/assets/images/graphs/tree-sitter-parsing-part-5.svg&quot; alt=&quot;***Figure 7b: The state of the parser after it pushes the fifth and final token `z` onto the stack.***&quot; /&gt;
+  &lt;/div&gt;
+  &lt;figcaption&gt;&lt;p&gt;&lt;strong&gt;&lt;em&gt;Figure 7: The state of the parser after it pushes the fifth and final token &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;z&lt;/code&gt; onto the stack.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;The parse table will indicate that the parser needs to perform a final reduction when it reaches the end of the program.
+In Figure 8 the final syntax tree is the last element left on the stack.&lt;/p&gt;
+
+&lt;figure class=&quot;flex flex-col flex-nowrap content-around&quot;&gt;
+  &lt;img src=&quot;/assets/images/graphs/tree-sitter-parsing-program-5.svg&quot; alt=&quot;Figure 8a: The state of the parser after the final reduce action. It pops off the tokens of the preceding tree and constructs a new tree.&quot; /&gt;
+  &lt;div class=&quot;flex flex-row flex-nowrap items-center pl-8 sm:pl-16&quot;&gt;
+    &lt;span class=&quot;font-bold text-2xl&quot;&gt;Stack:&lt;/span&gt;
+    &lt;img src=&quot;/assets/images/graphs/tree-sitter-parsing-part-6.svg&quot; alt=&quot;Figure 8b: The state of the parser after the final reduce action. It pops off the tokens of the preceding tree and constructs a new tree.&quot; /&gt;
+  &lt;/div&gt;
+  &lt;figcaption&gt;&lt;p&gt;&lt;strong&gt;&lt;em&gt;Figure 8: The state of the parser after the final reduce action. It pops off the tokens of the
+  preceding tree and constructs a new tree.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h3 id=&quot;what-is-a-generalized-lr-parser&quot;&gt;What is a Generalized LR Parser?&lt;/h3&gt;
+
+&lt;p&gt;A limitation of LR parsing comes from not being able to backtrack. It makes it hard to parse languages with ambiguity.&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;       &lt;span class=&quot;c1&quot;&gt;// parenthesized expression&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;z&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// arrow function&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;GLR parsing is a technique to handle ambiguity in a language. It forks the parse stack into two branches so the parser
+can try both interpretations.&lt;/p&gt;
+
+&lt;p&gt;Take the example of the arrow function above, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;x = (y) =&amp;gt; z&lt;/code&gt;. Figure 9 displays the state of the parser right before we
+fork the parse stack after reaching the identifier &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;y&lt;/code&gt;. In Figure 10, 11, and 12 the forked parse stack independently
+shows tokens pushed onto the stack and the reductions of the trees. Figure 13 shows the parser after chopping off the
+invalid branch when it encountered the arrow token.&lt;/p&gt;
+
+&lt;figure&gt;
+  &lt;img src=&quot;/assets/images/graphs/tree-sitter-glr-0.svg&quot; alt=&quot;Figure 9: The state of the parser after reaching the identifier `y`.&quot; /&gt;
+  &lt;figcaption&gt;&lt;strong&gt;&lt;em&gt;Figure 9: The state of the parser after reaching the identifier `y`.&lt;/em&gt;&lt;/strong&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;figure&gt;
+  &lt;img src=&quot;/assets/images/graphs/tree-sitter-glr-1.svg&quot; alt=&quot;Figure 10: The state of the parser after forking the parse stack.&quot; /&gt;
+  &lt;figcaption&gt;&lt;strong&gt;&lt;em&gt;Figure 10: The state of the parser after forking the parse stack.&lt;/em&gt;&lt;/strong&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;figure&gt;
+  &lt;img src=&quot;/assets/images/graphs/tree-sitter-glr-2.svg&quot; alt=&quot;Figure 11: The state of the parser after both forks push the closing parenthesis onto the stack.&quot; /&gt;
+  &lt;figcaption&gt;&lt;strong&gt;&lt;em&gt;Figure 11: The state of the parser after both forks push the closing parenthesis onto the stack.&lt;/em&gt;&lt;/strong&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;figure&gt;
+  &lt;img src=&quot;/assets/images/graphs/tree-sitter-glr-3.svg&quot; alt=&quot;Figure 12: The state of the parser after a reduction in the top branch.&quot; /&gt;
+  &lt;figcaption&gt;&lt;strong&gt;&lt;em&gt;Figure 12: The state of the parser after a reduction in the top branch.&lt;/em&gt;&lt;/strong&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;figure&gt;
+  &lt;img src=&quot;/assets/images/graphs/tree-sitter-glr-4.svg&quot; alt=&quot;Figure 13: The state of the parser after chopping off the invalid branch when the arrow token was encountered.&quot; /&gt;
+  &lt;figcaption&gt;&lt;strong&gt;&lt;em&gt;Figure 13: The state of the parser after chopping off the invalid branch when the arrow token was encountered.&lt;/em&gt;&lt;/strong&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Tree-sitter also uses GLR parsing for error recovery. When typing in an editor, errors are present whenever the current
+piece of code isn’t complete. The following code snippets show two similar examples. First, we have a for statement with
+an out-of-place keyword &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;if&lt;/code&gt; after the keyword &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;for&lt;/code&gt;. Second, we have an if statement with an out-of-place keyword &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;for&lt;/code&gt;
+before it. Using GLR parsing tree-sitter can build valid syntax trees for both examples with error nodes in the correct
+place.&lt;/p&gt;
+
+&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;figure&gt;
+  &lt;img src=&quot;/assets/images/graphs/tree-sitter-glr-error-0.svg&quot; alt=&quot;Figure 14: The syntax tree of the for statement showing the location of the invalid `if` keyword.&quot; /&gt;
+  &lt;figcaption&gt;&lt;strong&gt;&lt;em&gt;Figure 14: The syntax tree of the for statement showing the location of the invalid `if` keyword.&lt;/em&gt;&lt;/strong&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;figure&gt;
+  &lt;img src=&quot;/assets/images/graphs/tree-sitter-glr-error-1.svg&quot; alt=&quot;Figure 15: The syntax tree of the if statement showing the location of the invalid “for” keyword.&quot; /&gt;
+  &lt;figcaption&gt;&lt;strong&gt;&lt;em&gt;Figure 15: The syntax tree of the if statement showing the location of the invalid “for” keyword.&lt;/em&gt;&lt;/strong&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h3 id=&quot;what-is-incremental-parsing&quot;&gt;What is Incremental Parsing?&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Tree-sitter can be embedded in text editors because it is fast enough to parse an entire file on every keystroke&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;An incremental parser will parse the program once. When editing, the parser does not have to parse the entire source
+file again. It can use the position of the modified text and walk the current syntax tree. As it walks the tree, it
+marks the nodes that contain the location of the modified text. It starts in an empty state and reuses the nodes of the
+previous tree that haven’t changed in the new tree.&lt;/p&gt;
+
+&lt;p&gt;Suppose we change the following code to add a new argument d to the method call c. The nodes highlighted in green are
+the nodes marked by the parser. The parser can reuse all the other nodes in the tree&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;B&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//  ^&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//  The modification.&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;figure&gt;
+  &lt;img src=&quot;/assets/images/graphs/tree-sitter-incremental-1.svg&quot; alt=&quot;Figure 16: The syntax tree of the program after the edit, highlighting nodes that are marked by tree-sitter.
+  It is a pseudocode equivalent for a diagram and not an accurate representation of the tree built by tree-sitter.&quot; /&gt;
+  &lt;figcaption&gt;&lt;strong&gt;&lt;em&gt;Figure 16: The syntax tree of the program after the edit, highlighting nodes that are marked by tree-sitter.
+  It is a pseudocode equivalent for a diagram and not an accurate representation of the tree built by tree-sitter.&lt;/em&gt;&lt;/strong&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h2 id=&quot;how-to-build-a-parser&quot;&gt;How to build a parser&lt;/h2&gt;
+
+&lt;p&gt;You can find everything you need to build a parser with tree-sitter in the
+&lt;a href=&quot;https://tree-sitter.github.io/tree-sitter/creating-parsers&quot;&gt;documentation&lt;/a&gt;. The next section walks through an example
+to help get a head start on creating a parser. Find the source code for the full parser on
+&lt;a href=&quot;https://github.com/DerekStride/tree-sitter-math&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Find the test files in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;test/corpus&lt;/code&gt; directory. The other file we need to modify is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;grammar.js&lt;/code&gt;. Below you’ll find
+the code to declare that an expression can be either a number or a variable.&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;exports&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;grammar&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;math&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+
+  &lt;span class=&quot;na&quot;&gt;rules&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;expression&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;_expression&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;_expression&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;choice&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;variable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+
+    &lt;span class=&quot;na&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\d&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;(\.\d&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;)?&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;variable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;a-zA-Z$&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;0-9a-zA-Z_&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Note: the line expression: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$ =&amp;gt; $._expression&lt;/code&gt; will allow us to keep the syntax tree cleaner. A Node whose name begins
+with an underscore is anonymous and not part of the final syntax tree.&lt;/p&gt;
+
+&lt;p&gt;To support addition, define a new node called &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sum&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;prec&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;seq&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;field&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;_expression&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+    &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;field&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;right&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;_expression&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;prec.left&lt;/code&gt; function tells tree-sitter how to resolve ambiguities that arise from multiple additions. It’s telling
+the parser to evaluate sums left to right. Below is the error message tree-sitter would output without adding the
+precedence function. Take the equation &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;x + y + z&lt;/code&gt;, in the possible interpretations below the first means &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;(x + y) + z&lt;/code&gt;
+and the second means &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;x + (y + z)&lt;/code&gt;. Since addition is &lt;a href=&quot;https://en.wikipedia.org/wiki/Commutative_property&quot;&gt;commutative&lt;/a&gt;
+we could have also chosen &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;prec.right&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Unresolved conflict for symbol sequence:
+
+  _expression &apos;+&apos; _expression • &apos;+&apos; …
+
+Possible interpretations:
+
+  1: (sum _expression &apos;+&apos; _expression) • &apos;+&apos; …
+  2: _expression &apos;+&apos; (sum _expression • &apos;+&apos; _expression)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;A source of error arises if we try to add support for multiplication. Suppose we add the following node product. In the
+equation &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;z + x * y&lt;/code&gt;, we would output the wrong syntax tree.&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;product&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;prec&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;seq&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;field&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;_expression&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+    &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;field&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;right&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;_expression&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The following code snippet is a tree-sitter test. The test name lives between a header denoted by equal signs. Following
+the header is the source code and the expected tree separated by dashes. Given the code examples above, the tree-sitter
+test below would fail. The reason the test fails is that multiplication and addition have the same precedence.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;=========================
+Multiplication &amp;amp; addition
+=========================
+
+z + x * y
+
+-------------------------
+
+(expression
+ (sum
+  left: (variable)
+  right: (product
+    left: (variable)
+    right: (variable))))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;By default, every rule in our grammar has a precedence of 0. We could increase the precedence of multiplication to 1.
+However, the cleaner solution is to attach a name to our levels of precedence. Define precedences at the start of the
+module before we define our rules. Then add those names as the first argument to our precedence functions. Check out
+this &lt;a href=&quot;https://github.com/DerekStride/tree-sitter-math/commit/5a6f4549aafe325e33b9d9ed967c61d70177f06a&quot;&gt;commit&lt;/a&gt; for a
+cleaner diff.&lt;/p&gt;
+
+&lt;div class=&quot;language-diff highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gi&quot;&gt;+ precedences: _ =&amp;gt; [
++   [
++     &quot;multiplication&quot;,
++     &quot;addition&quot;,
++   ],
++ ],
+&lt;/span&gt;
+sum: $ =&amp;gt; prec.left(
+&lt;span class=&quot;gi&quot;&gt;+  &quot;addition&quot;,
+&lt;/span&gt;
+product: $ =&amp;gt; prec.left(
+&lt;span class=&quot;gi&quot;&gt;+  &quot;multiplication&quot;,
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Now rules, ambiguities, and precedence should make more sense. Be sure to check out the &lt;a href=&quot;https://github.com/DerekStride/tree-sitter-math&quot;&gt;GitHub
+repo&lt;/a&gt; for a reference implementation of the order of operations for
+addition, subtraction, multiplication, division, exponents, and parenthesized expressions.&lt;/p&gt;
+
+&lt;h2 id=&quot;how-to-interact-with-the-ast&quot;&gt;How to interact with the AST&lt;/h2&gt;
+
+&lt;p&gt;Use the S-expression query syntax to interact with a syntax tree produced by a tree-sitter parser. The S-expressions can
+define capture groups. Use these captures as the base unit of work. A piece of code that works with captures is language
+agnostic. For example, tree-sitter can be used for faster and semantically correct syntax highlighting. In neovim, you
+can specify captures to change the parser used for highlighting. Tree-sitter can provide syntax highlighting for
+languages other than that of the open file.&lt;/p&gt;
+
+&lt;p&gt;For example, see this &lt;a href=&quot;https://github.com/nvim-treesitter/nvim-treesitter/pull/1190&quot;&gt;pull request&lt;/a&gt; to nvim-treesitter.
+Nvim-treesitter uses the capture groups &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@content&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@language&lt;/code&gt; to specify injected code and its language for syntax
+highlighting. In ruby, if a heredoc contains code it’s common to delimit the heredoc with tags indicating the language
+contained in the string. Here is an example:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;no&quot;&gt;MY_HTML&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;~&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;HTML&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;
+  &amp;lt;title&amp;gt;This is a title&amp;lt;/title&amp;gt;
+  &amp;lt;div class=&quot;example-class&quot;&amp;gt;
+    &amp;lt;span&amp;gt;This is a span&amp;lt;/span&amp;gt;
+  &amp;lt;/div&amp;gt;
+&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;HTML&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The &lt;a href=&quot;https://github.com/nvim-treesitter/nvim-treesitter/pull/1190&quot;&gt;pull request&lt;/a&gt; mentioned above added a variant of the
+simplified query below. It defined the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@content&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@language&lt;/code&gt; capture groups for ruby. It was easy to add support
+for a new language because the code performing syntax highlighting works on the capture groups.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://tree-sitter.github.io/tree-sitter/syntax-highlighting&quot;&gt;Syntax highlighting&lt;/a&gt; is not the only superpower of
+tree-sitter. Structural editing of source code is easy with access to a syntax tree. I highly recommend neovim users
+checkout &lt;a href=&quot;https://github.com/nvim-treesitter/nvim-treesitter&quot;&gt;nvim-treesitter&lt;/a&gt;. At the time of writing this post, that
+project enables novel features and performance improvements on existing vim features. Other plugins exist that allow
+even more control of the syntax tree like
+&lt;a href=&quot;https://github.com/nvim-treesitter/nvim-treesitter-textobjects&quot;&gt;nvim-treesitter-textobjects&lt;/a&gt; and
+&lt;a href=&quot;https://github.com/nvim-treesitter/nvim-treesitter-refactor&quot;&gt;nvim-treesitter-refactor&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-future-of-editing-code&quot;&gt;The future of editing code&lt;/h2&gt;
+
+&lt;p&gt;The tools used to edit source code continue to get more sophisticated. Features that once
+only lived in custom-built interactive development environments (IDEs) are making their way into lightweight
+alternatives like VSCode and Vim. Language Servers bring the IDE experience to any editor with an LSP client.
+Tree-sitter allows language-agnostic tools to be powered by querying its syntax trees. Tree-sitter is a step in the
+right direction.&lt;/p&gt;
+
+&lt;p&gt;The ability for a developer to translate their thoughts into code, reorganize it, and refactor it relies on great tools
+like tree-sitter.&lt;/p&gt;</content><author><name>derekstride</name></author><summary type="html">Tree-sitter is a parser generator tool and an incremental parsing library. It can build a concrete syntax tree for a source file and efficiently update the syntax tree as the source file is edited.</summary></entry><entry><title type="html">How Shopify Dynamically Routes Storefront Traffic</title><link href="https://derek.stride.host/posts/how-shopify-dynamically-routes-storefront-traffic" rel="alternate" type="text/html" title="How Shopify Dynamically Routes Storefront Traffic" /><published>2021-04-09T00:00:00+00:00</published><updated>2021-04-09T00:00:00+00:00</updated><id>https://derek.stride.host/posts/how-shopify-dynamically-routes-storefront-traffic</id><content type="html" xml:base="https://derek.stride.host/posts/how-shopify-dynamically-routes-storefront-traffic">&lt;p&gt;&lt;em&gt;This post &lt;a href=&quot;https://shopify.engineering/dynamically-route-storefront-traffic&quot;&gt;originally appeared on the Shopify Engineering
 blog&lt;/a&gt; on April 9, 2021.&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;In 2019 we set out to &lt;a href=&quot;https://shopify.engineering/how-shopify-reduced-storefront-response-times-rewrite&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;rewrite the Shopify storefront implementation&lt;/a&gt;. Our goal was to make it faster. We talked about the strategies we used to achieve that goal in a previous post about &lt;a href=&quot;https://shopify.engineering/simplify-batch-cache-optimized-server-side-storefront-rendering&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;optimizing server-side rendering and implementing efficient caching&lt;/a&gt;. To build on that post, I’ll go into detail on how the Storefront Renderer team tweaked our load balancers to shift traffic between the legacy storefront and the new storefront.&lt;/p&gt;
