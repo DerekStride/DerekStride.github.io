@@ -1,6 +1,6 @@
 ---
 layout: post
-title: A comprehensive introduction to tree-sitter
+title: A Comprehensive Introduction to Tree-sitter
 excerpt: >
   Tree-sitter is a parser generator tool and an incremental parsing library. It can build a concrete syntax tree for a
   source file and efficiently update the syntax tree as the source file is edited.
@@ -139,7 +139,7 @@ tokens onto the stack.
   "***Figure 6: The state of the parser after it pushes the fourth token `+` onto the stack.***;" | append:
   "***Figure 7: The state of the parser after it pushes the fifth and final token `z` onto the stack.***;" | split: ";" -%}
 
-{%- for i in (0..2) -%}
+{% for i in (0..2) %}
 <figure class="flex flex-col flex-nowrap content-around">
   <img src="{{ figure-a[i] }}" alt="{{ captions[i] | replace_first: ":", "a:" }}">
   <div class="flex flex-row flex-nowrap items-center pl-8 sm:pl-16">
