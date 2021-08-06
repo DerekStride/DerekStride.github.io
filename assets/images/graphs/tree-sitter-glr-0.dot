@@ -1,0 +1,22 @@
+---
+---
+
+digraph treeSitterGLR0 {
+  graph [fontsize=24, fontname = "roboto"]
+  edge [fontsize=24, fontname = "roboto", style="setlinewidth(3)"]
+  node [fontsize=24, fontname = "roboto"]
+  rankdir = "LR";
+  ranksep = 0.5
+  nodesep = .25
+
+  first [label="1"]
+  second [label="34"]
+  third [label="1890"]
+  fourth [label="9"]
+  fifth [label="579"]
+
+  first -> second [arrowhead="none" label="identifier"]
+  second -> third [arrowhead="none" label="="]
+  third -> fourth [arrowhead="none" label="("]
+  fourth -> fifth [arrowhead="none" label="identifier"]
+}

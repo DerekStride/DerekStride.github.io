@@ -1,0 +1,27 @@
+---
+---
+
+digraph treeSitterParse6 {
+  graph [fontsize=24, fontname = "roboto"]
+  edge [fontsize=24, fontname = "roboto"]
+  node [fontsize=24, fontname = "roboto"]
+  ranksep = 1
+  nodesep = .25
+  edge [style="setlinewidth(3)"]
+
+  subgraph cluster_1 {
+    color=black;
+    rankdir = "TB";
+
+    plus [label="+"]
+    plus -> product
+    v3 [label="z"]
+    plus -> v3
+    v1 [label="x"]
+    product [label="*"]
+    product -> v1
+    v2 [label="y"]
+    product -> v2
+  }
+
+}
