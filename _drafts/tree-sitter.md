@@ -87,73 +87,81 @@ of operations. They learn first to evaluate `x * y` and then add `z` to the resu
 into a syntax tree for a computer to understand. The Figure 1 shows the parser at the start of the program. In Figure 2,
 3, and 4 the parser pushes each token onto the stack. The vertical bar represents the location of the parser.
 
-<div class="flex flex-col flex-nowrap content-around">
-  <img src="/assets/images/graphs/tree-sitter-parsing-program-0.svg" alt="">
-</div>
 
-<div class="flex flex-col flex-nowrap content-around">
-  <img src="/assets/images/graphs/tree-sitter-parsing-program-1.svg" alt="">
+<figure class="flex flex-col flex-nowrap content-around">
+  <img src="/assets/images/graphs/tree-sitter-parsing-program-0.svg" alt="Figure 1: Initial state of the parser.">
+  <figcaption>{{ "***Figure 1: Initial state of the parser.***" | markdownify }}</figcaption>
+</figure>
+
+{%- assign figure-a =
+  "/assets/images/graphs/tree-sitter-parsing-program-1.svg," | append:
+  "/assets/images/graphs/tree-sitter-parsing-program-2.svg," | append:
+  "/assets/images/graphs/tree-sitter-parsing-program-3.svg," | split: "," -%}
+
+{%- assign figure-b =
+  "/assets/images/graphs/tree-sitter-parsing-part-0.svg," | append:
+  "/assets/images/graphs/tree-sitter-parsing-part-1.svg," | append:
+  "/assets/images/graphs/tree-sitter-parsing-part-2.svg," | split: "," -%}
+
+{%- assign captions =
+  "***Figure 2: The state of the parser after it pushes the first token `x` onto the stack.***;" | append:
+  "***Figure 3: The state of the parser after it pushes the second token `*` onto the stack.***;" | append:
+  "***Figure 4: The state of the parser after it pushes the third token `y` onto the stack.***;" | split: ";" -%}
+
+{% for i in (0..2) -%}
+<figure class="flex flex-col flex-nowrap content-around">
+  <img src="{{ figure-a[i] }}" alt="{{ captions[i] | replace_first: ":", "a:" }}">
   <div class="flex flex-row flex-nowrap items-center pl-8 sm:pl-16">
     <span class="font-bold text-2xl">Stack:</span>
-    <img src="/assets/images/graphs/tree-sitter-parsing-part-0.svg" alt="">
+    <img src="{{ figure-b[i] }}" alt="{{ captions[i] | replace_first: ":", "b:" }}">
   </div>
-</div>
-
-<div class="flex flex-col flex-nowrap content-around">
-  <img src="/assets/images/graphs/tree-sitter-parsing-program-2.svg" alt="">
-  <div class="flex flex-row flex-nowrap items-center pl-8 sm:pl-16">
-    <span class="font-bold text-2xl">Stack:</span>
-    <img src="/assets/images/graphs/tree-sitter-parsing-part-1.svg" alt="">
-  </div>
-</div>
-
-<div class="flex flex-col flex-nowrap content-around">
-  <img src="/assets/images/graphs/tree-sitter-parsing-program-3.svg" alt="">
-  <div class="flex flex-row flex-nowrap items-center pl-8 sm:pl-16">
-    <span class="font-bold text-2xl">Stack:</span>
-    <img src="/assets/images/graphs/tree-sitter-parsing-part-2.svg" alt="">
-  </div>
-</div>
+  <figcaption>{{ captions[i] | markdownify }}</figcaption>
+</figure>
+{%- endfor %}
 
 The parse table will indicate that the parser needs to perform a different action when encountering the "+" token. The
 reduction action tells the parser to pop tokens off the stack, group them into a tree, and push the tree back onto the
 stack. Figure 5 below displays the stack after the reduction. Figure 6 and 7 show the parser pushing the rest of the
 tokens onto the stack.
 
-<div class="flex flex-col flex-nowrap content-around">
-  <img src="/assets/images/graphs/tree-sitter-parsing-program-3.svg" alt="">
-  <div class="flex flex-row flex-nowrap items-center pl-8 sm:pl-16">
-    <span class="font-bold text-2xl">Stack:</span>
-    <img src="/assets/images/graphs/tree-sitter-parsing-part-3.svg" alt="">
-  </div>
-</div>
+{%- assign figure-a =
+  "/assets/images/graphs/tree-sitter-parsing-program-3.svg," | append:
+  "/assets/images/graphs/tree-sitter-parsing-program-4.svg," | append:
+  "/assets/images/graphs/tree-sitter-parsing-program-5.svg," | split: "," -%}
 
-<div class="flex flex-col flex-nowrap content-around">
-  <img src="/assets/images/graphs/tree-sitter-parsing-program-4.svg" alt="">
-  <div class="flex flex-row flex-nowrap items-center pl-8 sm:pl-16">
-    <span class="font-bold text-2xl">Stack:</span>
-    <img src="/assets/images/graphs/tree-sitter-parsing-part-4.svg" alt="">
-  </div>
-</div>
+{%- assign figure-b =
+  "/assets/images/graphs/tree-sitter-parsing-part-3.svg," | append:
+  "/assets/images/graphs/tree-sitter-parsing-part-4.svg," | append:
+  "/assets/images/graphs/tree-sitter-parsing-part-5.svg," | split: "," -%}
 
-<div class="flex flex-col flex-nowrap content-around">
-  <img src="/assets/images/graphs/tree-sitter-parsing-program-5.svg" alt="">
+{%- assign captions =
+  "***Figure 5: The state of the parser after the first reduce action. It pops each token off the stack and builds a tree.***;" | append:
+  "***Figure 6: The state of the parser after it pushes the fourth token `+` onto the stack.***;" | append:
+  "***Figure 7: The state of the parser after it pushes the fifth and final token `z` onto the stack.***;" | split: ";" -%}
+
+{%- for i in (0..2) -%}
+<figure class="flex flex-col flex-nowrap content-around">
+  <img src="{{ figure-a[i] }}" alt="{{ captions[i] | replace_first: ":", "a:" }}">
   <div class="flex flex-row flex-nowrap items-center pl-8 sm:pl-16">
     <span class="font-bold text-2xl">Stack:</span>
-    <img src="/assets/images/graphs/tree-sitter-parsing-part-5.svg" alt="">
+    <img src="{{ figure-b[i] }}" alt="{{ captions[i] | replace_first: ":", "b:" }}">
   </div>
-</div>
+  <figcaption>{{ captions[i] | markdownify }}</figcaption>
+</figure>
+{% endfor %}
 
 The parse table will indicate that the parser needs to perform a final reduction when it reaches the end of the program.
 In Figure 8 the final syntax tree is the last element left on the stack.
 
-<div class="flex flex-col flex-nowrap content-around">
-  <img src="/assets/images/graphs/tree-sitter-parsing-program-5.svg" alt="">
+<figure class="flex flex-col flex-nowrap content-around">
+  <img src="/assets/images/graphs/tree-sitter-parsing-program-5.svg" alt="Figure 8a: The state of the parser after the final reduce action. It pops off the tokens of the preceding tree and constructs a new tree.">
   <div class="flex flex-row flex-nowrap items-center pl-8 sm:pl-16">
     <span class="font-bold text-2xl">Stack:</span>
-    <img src="/assets/images/graphs/tree-sitter-parsing-part-6.svg" alt="">
+    <img src="/assets/images/graphs/tree-sitter-parsing-part-6.svg" alt="Figure 8b: The state of the parser after the final reduce action. It pops off the tokens of the preceding tree and constructs a new tree.">
   </div>
-</div>
+  <figcaption>{{ "***Figure 8: The state of the parser after the final reduce action. It pops off the tokens of the
+  preceding tree and constructs a new tree.***" | markdownify }}</figcaption>
+</figure>
 
 ### What is a Generalized LR Parser?
 
@@ -172,11 +180,19 @@ fork the parse stack after reaching the identifier `y`. In Figure 10, 11, and 12
 shows tokens pushed onto the stack and the reductions of the trees. Figure 13 shows the parser after chopping off the
 invalid branch when it encountered the arrow token.
 
-![](/assets/images/graphs/tree-sitter-glr-0.svg)
-![](/assets/images/graphs/tree-sitter-glr-1.svg)
-![](/assets/images/graphs/tree-sitter-glr-2.svg)
-![](/assets/images/graphs/tree-sitter-glr-3.svg)
-![](/assets/images/graphs/tree-sitter-glr-4.svg)
+{%- assign captions =
+  "Figure 9: The state of the parser after reaching the identifier `y`.;" | append:
+  "Figure 10: The state of the parser after forking the parse stack.;" | append:
+  "Figure 11: The state of the parser after both forks push the closing parenthesis onto the stack.;" | append:
+  "Figure 12: The state of the parser after a reduction in the top branch.;" | append:
+  "Figure 13: The state of the parser after chopping off the invalid branch when the arrow token was encountered.;" | split: ";" -%}
+
+{% for i in (0..4) %}
+  {% assign src = "/assets/images/graphs/tree-sitter-glr-" | append: i | append: ".svg" %}
+  {% assign caption = captions[i] %}
+
+  {% include figure.html src=src caption=caption %}
+{% endfor %}
 
 Tree-sitter also uses GLR parsing for error recovery. When typing in an editor, errors are present whenever the current
 piece of code isn't complete. The following code snippets show two similar examples. First, we have a for statement with
@@ -188,15 +204,21 @@ place.
 for if (let x = 0; x < 5; x++) y()
 ```
 
-![](/assets/images/graphs/tree-sitter-glr-error-0.svg)
+{% include figure.html
+  src="/assets/images/graphs/tree-sitter-glr-error-0.svg"
+  caption="Figure 14: The syntax tree of the for statement showing the location of the invalid `if` keyword."
+%}
 
 ```c
 for if (x) y()
 ```
 
-![](/assets/images/graphs/tree-sitter-glr-error-1.svg)
+{% include figure.html
+  src="/assets/images/graphs/tree-sitter-glr-error-1.svg"
+  caption="Figure 15: The syntax tree of the if statement showing the location of the invalid “for” keyword."
+%}
 
-### What is an Incremental Parsing?
+### What is Incremental Parsing?
 
 > Tree-sitter can be embedded in text editors because it is fast enough to parse an entire file on every keystroke
 
@@ -216,7 +238,11 @@ a.c(d);
 return a;
 ```
 
-![](/assets/images/graphs/tree-sitter-incremental-1.svg)
+{% include figure.html
+  src="/assets/images/graphs/tree-sitter-incremental-1.svg"
+  caption="Figure 16: The syntax tree of the program after the edit, highlighting nodes that are marked by tree-sitter.
+  It is a pseudocode equivalent for a diagram and not an accurate representation of the tree built by tree-sitter."
+%}
 
 ## How to build a parser
 
