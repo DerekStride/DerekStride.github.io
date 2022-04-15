@@ -33,7 +33,7 @@ GEM
       terminal-table (~> 2.0)
     jekyll-feed (0.15.1)
       jekyll (>= 3.7, < 5.0)
-    jekyll-graphviz-dot (0.1.3)
+    jekyll-graphviz-dot (0.1.4)
       ruby-graphviz (~> 1.2)
     jekyll-postcss (0.4.1)
     jekyll-sass-converter (2.1.0)
