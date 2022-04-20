@@ -7,7 +7,7 @@ id: home
 
 # Hi, I'm Derek.
 
-I'm a developer based in Ottawa, ON, working on storefront performance at [Shopify](https://www.shopify.ca/). The most
+I'm a developer based in Ottawa, ON, working on storefront performance at [Shopify](https://github.com/shopify/). The most
 recent project I'm proud of is [Kinsley](https://github.com/DerekStride/kinsley). You can find the rest of my projects
 on [Github](https://github.com/{{- site.data.general.github -}}).
 
