@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://derek.stride.host/posts/rss.xml" rel="self" type="application/atom+xml" /><link href="https://derek.stride.host/" rel="alternate" type="text/html" /><updated>2022-04-20T01:50:21+00:00</updated><id>https://derek.stride.host/posts/rss.xml</id><title type="html">derekstride</title><author><name>derekstride</name></author><entry><title type="html">A Comprehensive Introduction to Tree-sitter</title><link href="https://derek.stride.host/posts/comprehensive-introduction-to-tree-sitter" rel="alternate" type="text/html" title="A Comprehensive Introduction to Tree-sitter" /><published>2021-08-06T00:00:00+00:00</published><updated>2021-08-06T00:00:00+00:00</updated><id>https://derek.stride.host/posts/comprehensive-introduction-to-tree-sitter</id><content type="html" xml:base="https://derek.stride.host/posts/comprehensive-introduction-to-tree-sitter"><![CDATA[<p>Check out the <a href="https://github.com/tree-sitter/tree-sitter">tree-sitter</a> repo on GitHub and their
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.0">Jekyll</generator><link href="https://derek.stride.host/posts/rss.xml" rel="self" type="application/atom+xml" /><link href="https://derek.stride.host/" rel="alternate" type="text/html" /><updated>2025-01-27T19:53:56+00:00</updated><id>https://derek.stride.host/posts/rss.xml</id><title type="html">derekstride</title><author><name>derekstride</name></author><entry><title type="html">A Comprehensive Introduction to Tree-sitter</title><link href="https://derek.stride.host/posts/comprehensive-introduction-to-tree-sitter" rel="alternate" type="text/html" title="A Comprehensive Introduction to Tree-sitter" /><published>2021-08-06T00:00:00+00:00</published><updated>2021-08-06T00:00:00+00:00</updated><id>https://derek.stride.host/posts/comprehensive-introduction-to-tree-sitter</id><content type="html" xml:base="https://derek.stride.host/posts/comprehensive-introduction-to-tree-sitter"><![CDATA[<p>Check out the <a href="https://github.com/tree-sitter/tree-sitter">tree-sitter</a> repo on GitHub and their
 <a href="https://tree-sitter.github.io/tree-sitter/">documentation</a> if you’re unfamiliar with the project. TL;DR from the
 GitHub repo:</p>
 
@@ -235,8 +235,8 @@ previous tree that haven’t changed in the new tree.</p>
 <p>Suppose we change the following code to add a new argument d to the method call c. The nodes highlighted in green are
 the nodes marked by the parser. The parser can reuse all the other nodes in the tree</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">B</span><span class="p">();</span>
-<span class="nx">a</span><span class="p">.</span><span class="nx">c</span><span class="p">(</span><span class="nx">d</span><span class="p">);</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">B</span><span class="p">();</span>
+<span class="nx">a</span><span class="p">.</span><span class="nf">c</span><span class="p">(</span><span class="nx">d</span><span class="p">);</span>
 <span class="c1">//  ^</span>
 <span class="c1">//  The modification.</span>
 <span class="k">return</span> <span class="nx">a</span><span class="p">;</span>
@@ -259,12 +259,12 @@ to help get a head start on creating a parser. Find the source code for the full
 <p>Find the test files in the <code class="language-plaintext highlighter-rouge">test/corpus</code> directory. The other file we need to modify is <code class="language-plaintext highlighter-rouge">grammar.js</code>. Below you’ll find
 the code to declare that an expression can be either a number or a variable.</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">grammar</span><span class="p">({</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nf">grammar</span><span class="p">({</span>
   <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">math</span><span class="dl">'</span><span class="p">,</span>
 
   <span class="na">rules</span><span class="p">:</span> <span class="p">{</span>
     <span class="na">expression</span><span class="p">:</span> <span class="nx">$</span> <span class="o">=&gt;</span> <span class="nx">$</span><span class="p">.</span><span class="nx">_expression</span><span class="p">,</span>
-    <span class="na">_expression</span><span class="p">:</span> <span class="nx">$</span> <span class="o">=&gt;</span> <span class="nx">choice</span><span class="p">(</span>
+    <span class="na">_expression</span><span class="p">:</span> <span class="nx">$</span> <span class="o">=&gt;</span> <span class="nf">choice</span><span class="p">(</span>
       <span class="nx">$</span><span class="p">.</span><span class="nx">variable</span><span class="p">,</span>
       <span class="nx">$</span><span class="p">.</span><span class="nx">number</span><span class="p">,</span>
     <span class="p">),</span>
@@ -280,11 +280,11 @@ with an underscore is anonymous and not part of the final syntax tree.</p>
 
 <p>To support addition, define a new node called <code class="language-plaintext highlighter-rouge">sum</code>.</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">sum</span><span class="p">:</span> <span class="nx">$</span> <span class="o">=&gt;</span> <span class="nx">prec</span><span class="p">.</span><span class="nx">left</span><span class="p">(</span>
-  <span class="nx">seq</span><span class="p">(</span>
-    <span class="nx">field</span><span class="p">(</span><span class="dl">"</span><span class="s2">left</span><span class="dl">"</span><span class="p">,</span> <span class="nx">$</span><span class="p">.</span><span class="nx">_expression</span><span class="p">),</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">sum</span><span class="p">:</span> <span class="nx">$</span> <span class="o">=&gt;</span> <span class="nx">prec</span><span class="p">.</span><span class="nf">left</span><span class="p">(</span>
+  <span class="nf">seq</span><span class="p">(</span>
+    <span class="nf">field</span><span class="p">(</span><span class="dl">"</span><span class="s2">left</span><span class="dl">"</span><span class="p">,</span> <span class="nx">$</span><span class="p">.</span><span class="nx">_expression</span><span class="p">),</span>
     <span class="dl">"</span><span class="s2">+</span><span class="dl">"</span><span class="p">,</span>
-    <span class="nx">field</span><span class="p">(</span><span class="dl">"</span><span class="s2">right</span><span class="dl">"</span><span class="p">,</span> <span class="nx">$</span><span class="p">.</span><span class="nx">_expression</span><span class="p">),</span>
+    <span class="nf">field</span><span class="p">(</span><span class="dl">"</span><span class="s2">right</span><span class="dl">"</span><span class="p">,</span> <span class="nx">$</span><span class="p">.</span><span class="nx">_expression</span><span class="p">),</span>
   <span class="p">),</span>
 <span class="p">),</span>
 </code></pre></div></div>
@@ -308,11 +308,11 @@ Possible interpretations:
 <p>A source of error arises if we try to add support for multiplication. Suppose we add the following node product. In the
 equation <code class="language-plaintext highlighter-rouge">z + x * y</code>, we would output the wrong syntax tree.</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">product</span><span class="p">:</span> <span class="nx">$</span> <span class="o">=&gt;</span> <span class="nx">prec</span><span class="p">.</span><span class="nx">left</span><span class="p">(</span>
-  <span class="nx">seq</span><span class="p">(</span>
-    <span class="nx">field</span><span class="p">(</span><span class="dl">"</span><span class="s2">left</span><span class="dl">"</span><span class="p">,</span> <span class="nx">$</span><span class="p">.</span><span class="nx">_expression</span><span class="p">),</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">product</span><span class="p">:</span> <span class="nx">$</span> <span class="o">=&gt;</span> <span class="nx">prec</span><span class="p">.</span><span class="nf">left</span><span class="p">(</span>
+  <span class="nf">seq</span><span class="p">(</span>
+    <span class="nf">field</span><span class="p">(</span><span class="dl">"</span><span class="s2">left</span><span class="dl">"</span><span class="p">,</span> <span class="nx">$</span><span class="p">.</span><span class="nx">_expression</span><span class="p">),</span>
     <span class="dl">"</span><span class="s2">*</span><span class="dl">"</span><span class="p">,</span>
-    <span class="nx">field</span><span class="p">(</span><span class="dl">"</span><span class="s2">right</span><span class="dl">"</span><span class="p">,</span> <span class="nx">$</span><span class="p">.</span><span class="nx">_expression</span><span class="p">),</span>
+    <span class="nf">field</span><span class="p">(</span><span class="dl">"</span><span class="s2">right</span><span class="dl">"</span><span class="p">,</span> <span class="nx">$</span><span class="p">.</span><span class="nx">_expression</span><span class="p">),</span>
   <span class="p">),</span>
 <span class="p">),</span>
 </code></pre></div></div>
@@ -349,12 +349,12 @@ cleaner diff.</p>
 +     "addition",
 +   ],
 + ],
-</span>
-sum: $ =&gt; prec.left(
-<span class="gi">+  "addition",
-</span>
-product: $ =&gt; prec.left(
-<span class="gi">+  "multiplication",
+</span><span class="err">
+</span><span class="p">sum: $ =&gt; prec.left(
+</span><span class="gi">+  "addition",
+</span><span class="err">
+</span><span class="p">product: $ =&gt; prec.left(
+</span><span class="gi">+  "multiplication",
 </span></code></pre></div></div>
 
 <p>Now rules, ambiguities, and precedence should make more sense. Be sure to check out the <a href="https://github.com/DerekStride/tree-sitter-math">GitHub
