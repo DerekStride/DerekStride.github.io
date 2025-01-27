@@ -3,6 +3,12 @@ author: derekstride
 email: derek@stride.host
 url: https://derek.stride.host
 
+defaults:
+  - scope:
+      path: "assets/pdfs"
+    values:
+      pdf: true
+
 plugins:
   - jekyll-feed
   - jekyll-postcss
@@ -13,6 +19,8 @@ feed:
   collections:
     books:
       path: /books/rss.xml
+    talks:
+      path: /talks/rss.xml
 
 exclude:
   - "*.config.js"
@@ -27,5 +35,8 @@ collections:
     output: true
     permalink: /:collection/:title
   books:
+    output: true
+    permalink: /:collection/:title
+  talks:
     output: true
     permalink: /:collection/:title

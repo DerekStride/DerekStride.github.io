@@ -23,6 +23,16 @@ Want to chat? Feel free to [email](mailto:{{- site.data.general.email -}}) me.
 
 [I wrote {{ site.posts.size }} posts](/posts). {% include posts-rss.md %}
 
+## Talks
+
+{% for talk in site.talks limit: entry_limit -%}
+  [{{ talk.title }}]({{ talk.url }}) <span class="text text-gray-500">({{ talk.date | date: "%Y-%m-%d" }})</span>
+
+  {{ talk.excerpt }}
+{% endfor %}
+
+[I presented {{ site.talks.size }} talks](/talks). {% include talks-rss.md %}
+
 ## Bookshelf
 
 {% for book in site.books limit: entry_limit -%}
